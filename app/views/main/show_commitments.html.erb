@@ -1,0 +1,91 @@
+<%= form_tag submit_commitments_path, :method => "post" do %>
+
+<div class="row">
+  <div class="col-md-12">
+    <h2>Your Commitment For 2016: <small class="text-muted"><%= fa_icon "caret-down" %> <span id="total-commitment">0</span> kg CO<sub>2</sub>e</small></h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 text-xs-center">
+    <%= submit_tag "Commit", :class => "btn btn-lg btn-primary" %>
+    <hr/>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 text-xs-center">
+    <h3><u>Commitments</u></h3>
+  </div>
+</div>
+
+<div class="row">
+  <% @reduction_options.each_with_index do |option, index| %>
+    <div class="col-xs-4">
+      <div class="card" data-carbon-impact="<%= option.carbon_impact %>">
+        <div class="card-header">
+          <%= option.title %>
+        </div>
+        <img src="<%= option.image_url %>" alt="Card image cap" style="width:100%">
+        <div class="card-block">
+          <p class="card-text text-muted">
+            <span class="text-warning"><%= fa_icon "star" %> Level 1</span><br/>
+            <span class="text-success"><%= fa_icon "tree" %> <%= option.carbon_impact %> kg CO<sub>2</sub>e</span><br/>
+            <%= option.description %>
+          </p>
+        </div>
+        <div class="btn-group card-footer" class="center-block" data-toggle="buttons">
+          <%= label_tag option.id, :class => "btn btn-primary center-block" do %>
+          <%= check_box_tag option.id %>
+            <span class="label-text"><%= fa_icon "circle-o" %> Commit</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+  
+<% end %>
+
+<% #change button text on button press 
+%>
+<script>
+  $(function () {
+    $(".card label").click (function() {
+      
+      // get the card
+      $card = $(this).closest('.card');
+      // get the carbon impact
+      $carbon_impact = parseInt($card.attr("data-carbon-impact"));
+      // get current total carbon impact
+      $total_carbon_impact = parseInt($("#total-commitment").html());
+      
+      // toggle "selected" class on card
+      $card.closest(".card").toggleClass("selected");
+      
+      // if card is selected, ...
+      if( $card.hasClass("selected") ) {
+        
+        // ... show "Committed" text on button
+        $(this).children(".label-text").first().html('<%= fa_icon "check-circle-o" %> Committed');
+                     
+        // ... increase total carbon impact
+        $("#total-commitment").html($total_carbon_impact + $carbon_impact);
+                     
+      }
+      
+      // else...
+      else {
+        
+        // ... show "Commit" text on button
+        $(this).children(".label-text").first().html('<%= fa_icon "circle-o" %> Commit');  
+                     
+        // ... decrease total carbon impact
+        $("#total-commitment").html($total_carbon_impact - $carbon_impact);
+                    
+      }
+        
+      
+      });
+  });
+</script>

@@ -1,0 +1,26 @@
+<%= form_for([@question, @answer]) do |f| %>
+
+  <h2>
+    <strong><%= @question.title %></strong>
+  </h2>
+
+<% if @answer.errors.any? && false %>
+    <div class="alert alert-danger" role="alert">
+      <p><strong><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</strong></p>
+
+      <ul>
+      <% @answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset class="form-group">
+    <%= f.label :answer, @question.question %>
+    <%= f.text_field :answer, :class => "form-control", :placeholder => "Enter answer here" %>
+  </fieldset>
+      
+  <div class="pull-right"><button type="submit" class="btn btn-primary"><%= fa_icon "check", :class => "fa-fw" %> Next</button></div>
+
+<% end %>

@@ -1,0 +1,146 @@
+<div class="row">
+  <div class="col-md-12" style="width:100%;">
+           
+    <h1>
+      <strong>Carbon Footprint Results</strong>
+    </h1>
+      
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    
+    <div id="highchart" style="width:100%; height:400px;"></div>
+    
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <br/>
+    <h3>Your Carbon Footprint: 19 <small>metric tons</small> CO<sub>2</sub>e <small>/ year</small></h3>
+    
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 text-xs-center">
+    <br/>
+    <hr/>
+    <h2>Are you ready to reduce your footprint in 2016?</h2>
+    <%= link_to show_commitments_path, :class => "btn btn-lg btn-primary text-center" do %>
+      <%= fa_icon "thumbs-up", :class => "fa-fw" %> Hell Yeah!
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $(function () { 
+    $('#highchart').highcharts({
+        chart: {
+            type: 'column'
+        },
+        credits: {
+          enabled: false
+        },
+        title: {
+          text: 'Greenhouse Gas Footprint'
+        },
+        subtitle: {
+          text: 'CO<sub>2</sub> equivalent',
+          useHTML: true
+        },
+        legend: {
+          useHTML: true,
+          align: 'right',
+          layout: 'vertical',
+          x: 0,
+          verticalAlign: 'top',
+          y: 40,
+          floating: true,
+          backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+          borderColor: '#CCC',
+          borderWidth: 1,
+          shadow: false
+        },
+        xAxis: {
+          labels: {
+            useHTML: true,
+            format: '<span style="font-size:larger; text-align:center;">{value}</span>',
+            align: 'center'
+          },
+          categories: ['<%= fa_icon "group" %> US Citizen', '<%= fa_icon "user" %> You', '<%= fa_icon "globe" %> World Average', '<%= fa_icon "flag" %> Net Zero <%= fa_icon "question-circle" %>'],
+        },
+        yAxis: {
+            title: {
+              text: 'Emissions (CO<sub>2</sub>e)',
+              useHTML: true
+            },
+            labels: {
+              formatter: function() {
+                return this.value + ' mt';
+              }
+            },
+        },
+        plotOptions: {
+          series: {
+            stacking: 'normal'
+          }
+        },
+        tooltip: {
+          useHTML: true,
+          headerFormat: '<span style="font-size:larger;"><strong><u>{point.key}</strong></u></span><br/>',
+          pointFormat: '<strong><span style="color:{series.color};">{series.name}:</span> {point.y}</strong>',
+          valueSuffix: ' metric tons'
+        },
+        series: [{
+          name: '<%= fa_icon "shopping-bag" %> Consumption',
+          data: [5, 5, 0.5, 0],
+          color: '#800080',
+          borderWidth: 0
+        }, {
+          name: '<%= fa_icon "cutlery" %> Food',
+          data: [5, 5, 0.5, 0],
+          color: '#FFA500',
+          borderWidth: 0
+        }, {
+          name: '<%= fa_icon "car" %> Transport',
+          data: [5, 3.5, 3],
+          color: '#2F7ED8',
+          borderWidth: 0
+        }, {
+          name: '<%= fa_icon "home" %> Home Energy',
+          data: [5, 3.5, 2],
+          color: '#8BBC21',
+          borderWidth: 0
+        }, {
+          name: '<%= fa_icon "university" %> Services',
+          data: [5, 5, 0.5, 0],
+          color: '#A9A9A9',
+          borderWidth: 0
+        }]
+    });
+}); 
+
+  $(function (){
+    
+    // update highcharts upon browser resize
+    $(window).resize(function(){
+      $("#highchart").css("width", $("#highchart").closest(".row").prev().find(".col-md-12").first().width());
+      $("#highchart").highcharts().reflow();
+      buildTooltip();
+    });
+
+    // net0 tooltip
+    function buildTooltip() {
+      $(".fa-question-circle").attr("data-toggle", "tooltip");
+      $(".fa-question-circle").attr("data-placement", "bottom");
+      $(".fa-question-circle").attr("title", "\"Net Zero\" refers to a complete reduction and/or offset of all greenhouse gas emissions");
+
+      $('[data-toggle="tooltip"]').tooltip();
+    }
+    
+    buildTooltip();
+  });
+</script>

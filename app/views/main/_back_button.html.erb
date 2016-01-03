@@ -1,0 +1,16 @@
+<% #Renders a back button %>
+
+
+<% #If this is not the first question, include a link to go back %>
+<% if @question.id != 1 %>
+
+  <%= link_to show_question_path(@question.prev) do %>
+    <button type="reset" class="btn btn-sm btn-secondary"><%= fa_icon "caret-left" %> Back</button>
+  <% end %>  
+
+<% #Else show a disabled button %>
+<% else %>
+
+  <button type="reset" class="btn btn-sm btn-secondary" disabled="disabled"><%= fa_icon "caret-left" %> Back</button>
+
+<% end %>

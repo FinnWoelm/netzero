@@ -1,0 +1,70 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// MAIN#MAKE_COMMITMENTS
+// make the "commit" button fullwidth
+div.card .btn-group.card-footer {
+  width: 100%;
+  padding: 0px;
+  
+  label {
+    width: 100%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+// black border around cards
+div.card {
+  border-color: black;
+}
+
+// add transition to cards for highlighting effect
+div.card, div.card .card-block p {
+  transition: all 1s ease 0s;
+}
+
+// highlight selected cards
+div.card.selected {
+  box-shadow: 0px  0px 5px $brand-primary;
+  border-color: $brand-primary;
+  background-color: $brand-primary;
+    
+  .card-text {
+    color: white;
+  }
+}
+
+
+// MAIN#SHOW_QUESTION
+// highlight input field on error
+form div.field_with_errors {
+  input.form-control  {
+    color: $state-danger-text !important;
+    border-color: $brand-danger !important; 
+    
+    &:focus {
+     box-shadow: 0px 0px 3px $state-danger-text !important;
+    }
+  }
+  
+  label {
+    color: $state-danger-text;
+  }
+}
+
+// MAIN#CONGRATULATE
+body.main.congratulate {
+/*  canvas {
+    position: absolute;
+    top: 0px;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 5;
+    color: white;
+  }*/
+}
