@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160101072434) do
+ActiveRecord::Schema.define(version: 20160108185135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string   "title"
+    t.text     "summary"
+    t.text     "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "answers", force: :cascade do |t|
     t.text     "answer"
@@ -24,6 +36,16 @@ ActiveRecord::Schema.define(version: 20160101072434) do
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+
+  create_table "commitments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "commitments", ["activity_id"], name: "index_commitments_on_activity_id", using: :btree
+  add_index "commitments", ["user_id"], name: "index_commitments_on_user_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.string   "title"
@@ -41,5 +63,14 @@ ActiveRecord::Schema.define(version: 20160101072434) do
     t.string   "image_url"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "answers", "questions"
+  add_foreign_key "commitments", "activities"
+  add_foreign_key "commitments", "users"
 end

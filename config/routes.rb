@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :commitments
+  resources :users
+  resources :activities
   # Admin Access
   scope '/admin' do
     get 'answers' => 'answers#index', :as => "all_answers"
