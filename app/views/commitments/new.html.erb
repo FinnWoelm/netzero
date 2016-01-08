@@ -27,7 +27,7 @@
         <p class="card-summary"><%= activity.summary %></p>
       </div>
       <div class="card-description">
-        <%= activity.description %>
+        <%= markdown(activity.description) %>
       </div>
     </div>      
   </div>

@@ -54,12 +54,11 @@ consumption = ActivityCategory.create(:title => "Consumption")
 
 
 # Home Energy
-activity = Activity.create([
-  {:category => home_energy,
-    :title => "Cold As Ice",
-    :summary => "Wash clothes with cold water.",
-    :description =>
+Activity.create(
+  :category => home_energy,
+  :title => "Cold As Ice",
+  :summary => "Wash clothes with cold water.",
+  :description =>
 "- Average savings
 - Cold water washing detergent"
-    }
-  ])
+)
