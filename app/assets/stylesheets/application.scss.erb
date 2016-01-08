@@ -27,6 +27,32 @@ $enable-flex: true;
   @include column-gap(1.25rem);
 }
 
+
+#highlight {
+  background-color:lightgray;
+  padding-top:15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  
+  #commit {
+    margin-top: -50px;
+  }
+}
+
+.card-container > .row {
+  transition: all 1s;
+}
+
+.card .card-description {
+  display: none;
+}
+
+// force width on images to be max 100%
+.card img {
+  width: 100%;
+  max-width: 100%;
+}
+
 div.spacing {
   height: 30px;
 }

@@ -1,5 +1,95 @@
-<h1>New Commitment</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <%= link_to commitments_path do %>
+      <button type="reset" class="btn btn-sm btn-secondary"><%= fa_icon "caret-left" %> Back</button>
+    <% end %> 
 
-<%= render 'form' %>
+    <h1>Add Commitments</h1>
+    
+    <hr/>
+  </div>
+</div>
 
-<%= link_to 'Back', commitments_path %>
+<%
+activities = ["Tree Hugger","lol","lol","Tree Hugger","lol","lol","Tree Hugger","lol","lol","Tree Hugger","lol","lol"]
+activities.each_with_index do |activity, index| %>
+
+  <% if index % 4 == 0 %>  
+    <div class="row">
+  <% end %>
+
+  <div class="col-xs-3">
+    <div class="card">
+      <div class="card-header">
+        <%= activity %>
+      </div>
+      <img src="<%= image_path 'sunset.jpg' %>" alt="Card image">
+      <div class="card-block">
+        <p class="card-summary">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <div class="card-description">
+        werowerhasdfahwfe
+      </div>
+    </div>      
+  </div>
+
+  <% if index % 4 == 3 %>
+    </div>
+  <% end %>
+
+<% end %>
+</div>
+
+<div id="highlight" class="row">
+  <div class="col-xs-3 card-holder"></div>
+  <div class="col-xs-9">
+    <button id="close" class="pull-right btn-sm btn btn-secondary">X</button>
+    <div style="height: 100%; flex-direction: column;" class="flex-container">
+      <p><strong>Tips, Tricks &amp; Resources:</strong></p>
+      <div class="card-description-holder">
+      </div>
+    </div>
+    <button id="commit" class="btn btn-primary pull-right"><%= fa_icon "check" %> Commit to this Action</button>
+  </div>
+</div>
+
+<script>
+$(function (){
+  
+  $("#highlight").hide(0);
+  
+  $(".card").click(function() {
+    
+    // hide highlight
+    $("#highlight").hide(0);
+    
+    // delete content
+    $("#highlight .card-holder").html("");
+    $("#highlight .card-description-holder").html("");
+    
+    
+    // insert new content
+    $(this).clone().appendTo($("#highlight .card-holder"));
+    $(this).find(".card-description").first().clone().appendTo($("#highlight .card-description-holder"));
+    
+    // show highlight    
+    $("#highlight").insertBefore($(this).closest(".row"));
+    $("#highlight").slideDown();
+    
+//    $(this).removeClass("col-xs-12").addClass("col-xs-"+$column_width);
+//    $(this).parent().parent().removeClass("col-xs-"+$column_width).addClass("col-xs-12");
+    
+    // enable card info
+//    $(this).siblings(".card-text").show();
+    
+    // add structure into the row
+    //$column.append($("#info"));
+    
+    // add card into 
+    //$("#info .col-xs-3").append(this);
+  });
+  
+});
+
+
+</script>

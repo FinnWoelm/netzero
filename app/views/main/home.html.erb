@@ -31,10 +31,10 @@
     categories.each do |category| %>
     
     <div class="col-xs-3 text-xs-center">
-      <a href="lol">
+      <%= link_to commitments_path do %>
         <div class="activity_category center-block"></div>
         <p><%= category %></p>        
-      </a>
+      <% end %>
     </div>
   
   <% end %>
