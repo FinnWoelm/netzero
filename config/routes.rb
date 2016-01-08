@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   end
   
   # Public Access    
+  get '/home' => 'main#home', :as => "home"
+  
+  
   get '/congratulations' => 'main#congratulate', :as => "congratulate"
 
   post '/commitments' => 'main#submit_commitments', :as => "submit_commitments"

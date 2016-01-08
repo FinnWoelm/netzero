@@ -4,6 +4,9 @@ class MainController < ApplicationController
   def index
   end
   
+  def home
+  end
+  
   # user is shown the next question
   def show_question
     @question = Question.find(params[:id])
