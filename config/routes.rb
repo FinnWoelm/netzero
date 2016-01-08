@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  
+  get '/commitments/:category/new' => "commitments#new", :as => "new_commitment"
+  
   resources :activity_categories
   resources :commitments
   resources :users
@@ -17,7 +20,7 @@ Rails.application.routes.draw do
   end
   
   # Public Access    
-  get '/home' => 'main#home', :as => "home"
+  get '/home' => 'commitments#index'
   
   
   get '/congratulations' => 'main#congratulate', :as => "congratulate"

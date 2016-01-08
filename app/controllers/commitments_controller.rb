@@ -5,6 +5,7 @@ class CommitmentsController < ApplicationController
   # GET /commitments.json
   def index
     @commitments = Commitment.all
+    @categories = ActivityCategory.all
   end
 
   # GET /commitments/1
@@ -15,6 +16,7 @@ class CommitmentsController < ApplicationController
   # GET /commitments/new
   def new
     @commitment = Commitment.new
+    @activities = Activity.all
   end
 
   # GET /commitments/1/edit
