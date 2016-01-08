@@ -1,41 +1,18 @@
 Rails.application.routes.draw do
   
   
-  get '/commitments/:category/new' => "commitments#new", :as => "new_commitment"
-  
-  resources :activity_categories
-  resources :commitments
-  resources :users
-  resources :activities
   # Admin Access
   scope '/admin' do
-    get 'answers' => 'answers#index', :as => "all_answers"
-    
-    resources :questions do
-      resources :answers
-    end
-    
-    resources :reduction_options
-    
+    resources :activity_categories      
   end
   
   # Public Access    
   get '/home' => 'commitments#index'
-  
-  
-  get '/congratulations' => 'main#congratulate', :as => "congratulate"
+  get '/commitments/:category/new' => "commitments#new", :as => "new_commitment"
 
-  post '/commitments' => 'main#submit_commitments', :as => "submit_commitments"
-  
-  get '/commitments' => 'main#show_commitments', :as => "show_commitments"
-  
-  get '/results' => 'main#show_results', :as => "show_results"
-  
-  get '/calculator', to: redirect('/calculator/1')
-  
-  get '/calculator/:id' => 'main#show_question', :as => "show_question"
-  
-  post '/calculator/:id' => 'main#submit_answer', :as => "submit_answer"
+  resources :commitments
+  resources :users
+  resources :activities
   
   root 'main#index'
   # The priority is based upon order of creation: first created -> highest priority.
