@@ -18,7 +18,7 @@
   <% end %>
 
   <div class="col-xs-3">
-    <div class="card">
+    <div id="activity_<%= activity.id %>" class="card">
       <div class="card-header">
         <%= activity.title %>
       </div>
@@ -37,19 +37,36 @@
   <% end %>
 
 <% end %>
-</div>
 
+<!-- detailed view pane -->
 <div id="highlight" class="row">
-  <div class="col-xs-3 card-holder"></div>
+  
+  <!-- holds card -->
+  <div class="col-xs-3 card-holder">
+  </div>
+  
+  <!-- description + buttons -->
   <div class="col-xs-9">
+    
+    <!-- close button -->
     <button id="close" class="pull-right btn-sm btn btn-secondary">X</button>
+    
+    <!-- holds description -->
     <div style="height: 100%; flex-direction: column;" class="flex-container">
       <p><strong>Tips, Tricks &amp; Resources:</strong></p>
       <div class="card-description-holder">
       </div>
     </div>
+    
+    <!-- commit button -->
     <button id="commit" class="btn btn-primary pull-right"><%= fa_icon "check" %> Commit to this Action</button>
   </div>
+  
+  <!-- little triangle from: https://css-tricks.com/snippets/css/css-triangle/ -->
+  <div class="triangle col-xs-3 text-xs-center" style="height: 0px;">
+    <div class="center-block" style="width: 0px; height: 0px; border-top: 10px solid lightgray; border-left: 10px solid transparent; border-right: 10px solid transparent;"></div>
+  </div>
+  
 </div>
 
 <script>
@@ -65,12 +82,15 @@ $(function (){
     // delete content
     $("#highlight .card-holder").html("");
     $("#highlight .card-description-holder").html("");
-    
-    
+        
     // insert new content
     $(this).clone().appendTo($("#highlight .card-holder"));
     $(this).find(".card-description").first().clone().appendTo($("#highlight .card-description-holder"));
     
+    // reposition little triangle
+    $index = $(this).parent().prevAll().length;
+    $("#highlight .triangle").removeClass("col-xs-offset-0 col-xs-offset-3 col-xs-offset-6 col-xs-offset-9").addClass("col-xs-offset-"+($index*3));
+
     // show highlight    
     $("#highlight").insertBefore($(this).closest(".row"));
     $("#highlight").slideDown();
@@ -89,6 +109,4 @@ $(function (){
   });
   
 });
-
-
 </script>

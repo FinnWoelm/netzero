@@ -54,11 +54,70 @@ consumption = ActivityCategory.create(:title => "Consumption")
 
 
 # Home Energy
-Activity.create(
+Activity.create([
+  {
   :category => home_energy,
   :title => "Cold As Ice",
   :summary => "Wash clothes with cold water.",
   :description =>
 "- Average savings
 - Cold water washing detergent"
-)
+  },
+
+  {
+  :category => home_energy,
+  :title => "Light It Up",
+  :summary => "Replace your light bulbs with LEDs.",
+  :description =>
+"- where to buy
+- price"
+  },
+  
+  {
+  :category => home_energy,
+  :title => "Pull The Plug",
+  :summary => "Unplug devices that are not in use.",
+  :description => 
+  "- phantom power"
+  },
+  
+  {
+  :category => home_energy,
+  :title => "Keep It Cool",
+  :summary => "Turn down your thermostat.",
+  :description => 
+  "TBA"
+  },  
+  
+  {
+  :category => home_energy,
+  :title => "Speed Shower",
+  :summary => "Take shorter showers and fewer baths.",
+  :description => 
+  "TBA"
+  },
+
+  {
+  :category => home_energy,
+    :title => "Conserve 'Em",
+    :summary => "Turn down your fridge.",
+  :description => 
+  "TBA"
+  },  
+  
+  {
+  :category => home_energy,
+    :title => "Cool Dish Washer",
+    :summary => "Wash your dishes in cold water.",
+  :description => 
+  "TBA"
+  },  
+  
+  {
+  :category => home_energy,
+   :title => "Audition, Please!",
+   :summary => "Get a home energy audit.",
+  :description => 
+  "TBA"
+  }
+])
