@@ -39,6 +39,9 @@ gem "font-awesome-rails"
 # Install HighCharts for awesome charts
 gem "highcharts-rails", "~> 3.0.0"
 
+# Install Paperclip for image attachments
+gem "paperclip", "~> 4.3"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
