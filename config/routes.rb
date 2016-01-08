@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :activity_categories
   resources :commitments
   resources :users
   resources :activities
