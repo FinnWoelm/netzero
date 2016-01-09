@@ -63,6 +63,17 @@ namespace :deploy do
       end
     end
   end
+
+  desc "build missing paperclip styles"
+  task :build_missing_paperclip_styles do
+    on roles(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, "paperclip:refresh:missing_styles"
+        end
+      end
+    end
+  end
   
   desc "Make sure local git is in sync with remote."
   task :check_revision do
@@ -95,6 +106,8 @@ namespace :deploy do
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end
+
+after("deploy:compile_assets", "deploy:build_missing_paperclip_styles")
 
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
