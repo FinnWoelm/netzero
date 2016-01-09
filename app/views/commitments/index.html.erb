@@ -6,7 +6,37 @@
 
 <div class="row">
   <div class="col-xs-12 text-xs-center">
-    <h3>&mdash;</h3>
+    <% if @commitments.count == 0 %>
+      <h3>&mdash;</h3>
+    <% else %>
+      <%
+      @commitments.each_with_index do |commitment, index| %>
+
+        <% if index % 6 == 0 %>  
+          <div class="row">
+        <% end %>
+
+          <div class="col-xs-2 activity" style="font-size: 80%;">
+          <div class="card">
+            <div class="card-header">
+              <%= commitment.activity.title %>
+            </div>
+            <div class="image-container" style="background-image:url(<%= image_path "sunset.jpg" %>);">
+              <img src="<%= image_path 'check.png' %>" alt="Card image">
+            </div>
+            <div class="card-block">
+              <p class="card-summary"><%= commitment.activity.summary %></p>
+            </div>
+          </div>      
+        </div>
+
+        <% if index % 6 == 3 || index == @commitments.count - 1 %>
+          </div>
+        <% end %>
+
+      <% end %>
+
+    <% end %>
   </div>
 </div>
 

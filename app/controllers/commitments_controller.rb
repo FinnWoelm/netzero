@@ -15,7 +15,7 @@ class CommitmentsController < ApplicationController
 
   # GET /commitments/new
   def new
-    @commitment = Commitment.new
+    @commitments = Commitment.all
     @activities = ActivityCategory.find_by(slug: params[:category_slug]).activities
   end
 
