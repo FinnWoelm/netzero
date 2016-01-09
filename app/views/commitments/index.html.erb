@@ -30,7 +30,7 @@
     @categories.each do |category| %>
     
     <div class="col-xs-3 text-xs-center">
-      <%= link_to new_commitment_path(:category => category.title) do %>
+      <%= link_to new_commitment_path(:category => category.slug) do %>
         <div class="activity_category center-block"></div>
         <p><%= category.title %></p>        
       <% end %>

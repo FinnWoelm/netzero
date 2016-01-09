@@ -47,10 +47,10 @@
 #  
 #  ])
 
-transportation = ActivityCategory.create(:title => "Transportation")
-home_energy = ActivityCategory.create(:title => "Home Energy")
-food = ActivityCategory.create(:title => "Food")
-consumption = ActivityCategory.create(:title => "Consumption")
+transportation = ActivityCategory.create(:title => "Transportation", :slug => "transportation")
+home_energy = ActivityCategory.create(:title => "Home Energy", :slug => "home-energy")
+food = ActivityCategory.create(:title => "Food", :slug => "food")
+consumption = ActivityCategory.create(:title => "Consumption", :slug => "consumption")
 
 
 # Home Energy
