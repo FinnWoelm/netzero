@@ -107,7 +107,7 @@ namespace :deploy do
   after  :finishing,    :restart
 end
 
-after("deploy:compile_assets", "deploy:build_missing_paperclip_styles")
+#after("deploy:compile_assets", "deploy:build_missing_paperclip_styles")
 
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
