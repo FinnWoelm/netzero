@@ -1,3 +1,38 @@
 // Place all the styles related to the Commitments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// style the highlight box
+#highlight {
+  background-color:lightgray;
+  padding-top:15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  
+  #commit {
+    margin-top: -50px;
+  }
+}
+
+// add transition effect
+.card-container > .row {
+  transition: all 1s;
+}
+
+// hide the card description
+.card .card-description {
+  display: none;
+}
+
+.card {
+  opacity: 1;
+  
+  div.image-container {
+    
+    background-size: 100%;
+    
+    img {
+      opacity: 0;
+    }
+  }
+}

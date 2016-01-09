@@ -22,7 +22,9 @@
       <div class="card-header">
         <%= activity.title %>
       </div>
-      <img src="<%= image_path 'sunset.jpg' %>" alt="Card image">
+      <div class="image-container" style="background-image:url(<%= image_path "sunset.jpg" %>);">
+        <img src="<%= image_path 'check.png' %>" alt="Card image">
+      </div>
       <div class="card-block">
         <p class="card-summary"><%= activity.summary %></p>
       </div>
@@ -74,6 +76,12 @@ $(function (){
   
   $("#highlight").hide(0);
   
+  // close highlight pane
+  $("#close").click(function() {
+    $("#highlight").slideUp();
+  });
+  
+  // show highlight pane
   $(".card").click(function() {
     
     // hide highlight

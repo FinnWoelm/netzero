@@ -8,6 +8,8 @@ $enable-flex: true;
 
 @import "main";
 
+@import "commitments";
+
 @mixin column-count($count) {
   -webkit-column-count: $count;
   -moz-column-count: $count;
@@ -25,26 +27,6 @@ $enable-flex: true;
 .card-columns {
   @include column-count(3);
   @include column-gap(1.25rem);
-}
-
-
-#highlight {
-  background-color:lightgray;
-  padding-top:15px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  
-  #commit {
-    margin-top: -50px;
-  }
-}
-
-.card-container > .row {
-  transition: all 1s;
-}
-
-.card .card-description {
-  display: none;
 }
 
 // force width on images to be max 100%
