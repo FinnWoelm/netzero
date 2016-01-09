@@ -9,30 +9,53 @@
   margin-bottom: 15px;
   border-radius: 8px;
   
-  #commit {
+  #submit-action {
     margin-top: -50px;
   }
 }
 
-// add transition effect
-.card-container > .row {
-  transition: all 1s;
-}
-
-// hide the card description
-.card .card-description {
+// hide card description, form, etc...
+.card .card-hidden {
   display: none;
 }
 
-.card {
-  opacity: 1;
+.activity:not(.committed), .card-holder {
+  div.image-container img {
+    opacity: 0;
+  }
+}
+
+.activity {
+    transition: all 1s;
+}
+
+.card-holder, .card-description {
+  transition: all 0s;
+}
+
+.activity, .card-holder {
   
-  div.image-container {
-    
+  div.image-container {  
     background-size: 100%;
     
     img {
-      opacity: 0;
+      transition: all 1s;
+    }
+  }  
+  
+  &.committed {
+    .card {
+      opacity: .5;
     }
   }
+  
+  
+}
+
+.activity .card:not(.active) {
+  cursor: pointer;
+}
+
+.card.active {
+  box-shadow: 0px 0px 5px $brand-primary;
 }

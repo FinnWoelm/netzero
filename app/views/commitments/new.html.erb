@@ -17,8 +17,8 @@
     <div class="row">
   <% end %>
 
-  <div class="col-xs-3">
-    <div id="activity_<%= activity.id %>" class="card">
+  <div id="activity_<%= activity.id %>" class="activity col-xs-3">
+    <div class="card">
       <div class="card-header">
         <%= activity.title %>
       </div>
@@ -28,8 +28,13 @@
       <div class="card-block">
         <p class="card-summary"><%= activity.summary %></p>
       </div>
-      <div class="card-description">
-        <%= markdown(activity.description) %>
+      <div class="card-hidden">
+        <div class="card-description">
+          <%= markdown(activity.description) %>
+        </div>
+        <div class="card-action">
+          <%= render partial: 'commit_form', locals: {activity_id: activity.id} %>
+        </div>
       </div>
     </div>      
   </div>
@@ -61,7 +66,9 @@
     </div>
     
     <!-- commit button -->
-    <button id="commit" class="btn btn-primary pull-right"><%= fa_icon "check" %> Commit to this Action</button>
+    <div id="submit-action" class="pull-right">
+    
+    </div>
   </div>
   
   <!-- little triangle from: https://css-tricks.com/snippets/css/css-triangle/ -->
@@ -74,34 +81,74 @@
 <script>
 $(function (){
   
+  $commitButtonText = $("#commit button").html();
+  
   $("#highlight").hide(0);
+  
+  // commit action
+  $("#submit-action").click(function() {
+    setButton($(this).find("button").first(), "loading"); 
+  });
   
   // close highlight pane
   $("#close").click(function() {
     $("#highlight").slideUp();
+    $(".card.active").removeClass("active");
   });
   
   // show highlight pane
   $(".card").click(function() {
     
+    // cancel function if this card is already active
+    if($(this).hasClass("active"))
+      return;
+    
+    $card = this;
+    
+    $isSibling = false;
+    
+    // determine if new card is sibling of current
+    $isSibling = $(this).parent().parent().find(".active").length == 1 ? true : false;
+    
     // hide highlight
-    $("#highlight").hide(0);
+    if ($isSibling)
+      $("#highlight .card-holder").fadeTo(0, 0, function(){replaceContent()});
+    else
+      $("#highlight").hide(0, function(){replaceContent()});
     
-    // delete content
-    $("#highlight .card-holder").html("");
-    $("#highlight .card-description-holder").html("");
-        
-    // insert new content
-    $(this).clone().appendTo($("#highlight .card-holder"));
-    $(this).find(".card-description").first().clone().appendTo($("#highlight .card-description-holder"));
-    
-    // reposition little triangle
-    $index = $(this).parent().prevAll().length;
-    $("#highlight .triangle").removeClass("col-xs-offset-0 col-xs-offset-3 col-xs-offset-6 col-xs-offset-9").addClass("col-xs-offset-"+($index*3));
+    function replaceContent() {
+      // delete content
+      $("#highlight .card-holder").html("");
+      $("#highlight .card-description-holder").html("");
+      $("#highlight #submit-action").html("");
 
-    // show highlight    
-    $("#highlight").insertBefore($(this).closest(".row"));
-    $("#highlight").slideDown();
+      // insert new content
+      $($card).clone().appendTo($("#highlight .card-holder"));
+      $($card).find(".card-description").first().clone().appendTo($("#highlight .card-description-holder"));
+      $($card).find(".card-action").first().clone().appendTo($("#highlight #submit-action"));
+
+      //$("#commitment_activity_id").attr("value", $(this).parent().attr("id").substring("activity_".length));
+
+      // reposition little triangle
+      $index = $($card).parent().prevAll().length;
+      $("#highlight .triangle").removeClass("col-xs-offset-0 col-xs-offset-3 col-xs-offset-6 col-xs-offset-9").addClass("col-xs-offset-"+($index*3));
+
+      // show highlight    
+      $("#highlight").insertBefore($($card).closest(".row"));
+
+      if ($isSibling) {
+        $("#highlight .card-holder").fadeTo(200, 1);
+        //$("#highlight .card-description-holder").fadeTo(200, 1);
+      }
+      else
+        $("#highlight").slideDown();
+      
+                  
+      // set this card to active
+      $(".card.active").removeClass("active");
+      $($card).addClass("active");
+      
+    };
     
 //    $(this).removeClass("col-xs-12").addClass("col-xs-"+$column_width);
 //    $(this).parent().parent().removeClass("col-xs-"+$column_width).addClass("col-xs-12");
@@ -116,5 +163,19 @@ $(function (){
     //$("#info .col-xs-3").append(this);
   });
   
+  // setButton(element, state)
+  function setButton($element, $state, $text) {
+    switch($state) {
+      case 'reset':
+        $($element).prop("disabled", false);
+        $($element).html($text);
+      break;
+      case 'loading':
+        $($element).prop("disabled", true);
+        $($element).html("<%= escape_javascript(fa_icon 'spinner spin') %> Loading...");
+      break;
+    }
+  }
+
 });
 </script>

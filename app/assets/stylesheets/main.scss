@@ -13,7 +13,7 @@ div.activity_category {
 
 // MAIN#MAKE_COMMITMENTS
 // make the "commit" button fullwidth
-div.card .btn-group.card-footer {
+/*div.card .btn-group.card-footer {
   width: 100%;
   padding: 0px;
   
@@ -23,7 +23,7 @@ div.card .btn-group.card-footer {
     border-top-right-radius: 0px;
     margin-bottom: 0px;
   }
-}
+}*/
 
 // black border around cards
 div.card {
@@ -31,9 +31,9 @@ div.card {
 }
 
 // add transition to cards for highlighting effect
-div.card, div.card .card-block p {
+/*div.card, div.card .card-block p {
   transition: all 1s ease 0s;
-}
+}*/
 
 // highlight selected cards
 div.card.selected {

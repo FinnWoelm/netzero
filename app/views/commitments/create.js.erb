@@ -1,0 +1,10 @@
+setCommitment("<%= @commitment.activity.id %>");
+
+// setCommitment(id)
+function setCommitment($id) {
+  $("#activity_"+$id).addClass("committed");
+
+  $("#activity_"+$id + " .card-hidden .card-action").html("<%= escape_javascript(render partial: 'uncommit_form', locals: {commitment: @commitment}) %>");
+
+  $("#close").click();
+}

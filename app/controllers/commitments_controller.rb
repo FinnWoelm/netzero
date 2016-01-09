@@ -31,6 +31,7 @@ class CommitmentsController < ApplicationController
     respond_to do |format|
       if @commitment.save
         format.html { redirect_to @commitment, notice: 'Commitment was successfully created.' }
+        format.js   {}
         format.json { render :show, status: :created, location: @commitment }
       else
         format.html { render :new }
@@ -59,6 +60,7 @@ class CommitmentsController < ApplicationController
     @commitment.destroy
     respond_to do |format|
       format.html { redirect_to commitments_url, notice: 'Commitment was successfully destroyed.' }
+      format.js {}
       format.json { head :no_content }
     end
   end
