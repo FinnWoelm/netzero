@@ -1,0 +1,36 @@
+<div id="info-pane-<%= size %>-clearfix" class="info-pane clearfix <%= visibility %>"></div>
+<div id="info-pane-<%= size %>" class="info-pane col-xs-12 <%= visibility %>">
+  <div class="row">
+    
+    <% if show_card %>
+      <!-- holds card -->
+      <div class="card-holder col-md-3"></div>
+    <% end %>
+    
+    <!-- description + buttons -->
+    <div class="<%= show_card ? 'col-xs-9' : 'col-xs-12' %>">
+
+      <!-- close button -->
+      <button class="btn-close pull-right btn-sm btn btn-secondary">X</button>
+
+      <!-- holds description -->
+      <div style="height: 100%; flex-direction: column;" class="flex-container">
+        <p><strong>Details:</strong></p>
+        <div class="card-description-holder">
+        </div>
+      </div>    
+
+      <!-- commit button -->
+      <div class="submit-action pull-right"></div>     
+
+    </div>
+  </div>
+  <div class="row">
+    <!-- little triangle from: https://css-tricks.com/snippets/css/css-triangle/ -->
+    <% for i in 0..cards_per_row do %>
+      <div class="triangle col-xs-<%= 12 / cards_per_row %> col-xs-offset-<%= 12 / cards_per_row * i %> text-xs-center" style="height: 0px;">
+        <div class="center-block" style="width: 0px; height: 0px; border-top: 10px solid lightgray; border-left: 10px solid transparent; border-right: 10px solid transparent;"></div>
+      </div> 
+    <% end %>
+  </div>
+</div>

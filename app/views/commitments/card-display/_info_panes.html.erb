@@ -1,0 +1,5 @@
+<%= render :partial => "commitments/card-display/info_pane", :locals => {size: "xl", show_card: true, cards_per_row: cards_per_row['xl'], visibility: "hidden-lg-down"} %>
+<%= render :partial => "commitments/card-display/info_pane", :locals => {size: "lg", show_card: true, cards_per_row: cards_per_row['lg'], visibility: "hidden-md-down hidden-xl-up"} %>
+<%= render :partial => "commitments/card-display/info_pane", :locals => {size: "md", show_card: true, cards_per_row: cards_per_row['md'], visibility: "hidden-sm-down hidden-lg-up"} %>
+<%= render :partial => "commitments/card-display/info_pane", :locals => {size: "sm", show_card: false, cards_per_row: cards_per_row['sm'], visibility: "hidden-xs-down hidden-md-up"} %>
+<%= render :partial => "commitments/card-display/info_pane", :locals => {size: "xs", show_card: false, cards_per_row: cards_per_row['xs'], visibility: "hidden-sm-up"} %>

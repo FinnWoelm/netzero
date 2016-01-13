@@ -1,0 +1,25 @@
+  <div id="activity_<%= activity.id %>" class="activity col-xs-<%= 12/cards_per_row['xs'] %> col-sm-<%= 12/cards_per_row['sm'] %> col-md-<%= 12/cards_per_row['md'] %> col-lg-<%= 12/cards_per_row['lg'] %> col-xl-<%= 12/cards_per_row['xl'] %> <%= allow_new_commitments && @commitments.exists?(activity: activity) ? 'committed' : '' %>">
+    <div class="card">
+      <div class="card-header">
+        <%= activity.title %>
+      </div>
+      <div class="image-container" style="background-image:url(<%= image_path "sunset.jpg" %>);">
+        <img src="<%= image_path 'check.png' %>" alt="Card image">
+      </div>
+      <div class="card-block">
+        <p class="card-summary"><%= activity.summary %></p>
+      </div>
+      <div class="card-hidden">
+        <div class="card-description">
+          <%= markdown(activity.description) %>
+        </div>
+        <div class="card-action">
+          <% if allow_new_commitments and not @commitments.exists?(activity: activity) %>
+            <%= render partial: 'commit_form', locals: {activity_id: activity.id} %>
+          <% else %>
+            <%= render partial: 'uncommit_form', locals: {commitment: @commitments.find_by(activity: activity)} %>
+          <% end %>
+        </div>
+      </div>
+    </div>      
+  </div>

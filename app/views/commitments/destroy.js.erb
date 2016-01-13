@@ -6,6 +6,6 @@ function destroyCommitment($id) {
 
   $("#activity_"+$id + " .card-hidden .card-action").html("<%= escape_javascript(render partial: 'commit_form', locals: {activity_id: @commitment.activity.id}) %>");
 
-  $("#close").click();
+  $(".btn-close:visible").click();
 }
         

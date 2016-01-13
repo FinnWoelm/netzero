@@ -1,0 +1,15 @@
+  <% if index % cards_per_row['xl'] == 0 %>
+    <div class="clearfix clearfix-xl hidden-lg-down"></div>
+  <% end %>  
+  <% if index % cards_per_row['lg'] == 0 %>
+    <div class="clearfix clearfix-lg hidden-md-down hidden-xl-up"></div>
+  <% end %>  
+  <% if index % cards_per_row['md'] == 0 %>
+    <div class="clearfix clearfix-md hidden-sm-down hidden-lg-up"></div>
+  <% end %>
+  <% if index % cards_per_row['sm'] == 0 %>
+    <div class="clearfix clearfix-sm hidden-xs-down hidden-md-up"></div>
+  <% end %>
+  <% if index % cards_per_row['xs'] == 0 %>
+    <div class="clearfix clearfix-xs hidden-sm-up"></div>
+  <% end %>

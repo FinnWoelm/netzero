@@ -5,40 +5,31 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-12 text-xs-center">
     <% if @commitments.count == 0 %>
-      <h3>&mdash;</h3>
+      <div class="col-xs-12 text-xs-center">
+        <h3>&mdash;</h3>
+      </div>
     <% else %>
       <%
-      @commitments.each_with_index do |commitment, index| %>
+       cards_per_row = {}
+       cards_per_row['xs'] = 1
+       cards_per_row['sm'] = 2
+       cards_per_row['md'] = 4
+       cards_per_row['lg'] = 4
+       cards_per_row['xl'] = 6
+       @commitments.each_with_index do |commitment, index| %>
 
-        <% if index % 6 == 0 %>  
-          <div class="row">
-        <% end %>
+       <%= render :partial => "commitments/card-display/clearfixes", :locals => {cards_per_row: cards_per_row, index: index} %>
 
-          <div class="col-xs-2 activity" style="font-size: 80%;">
-          <div class="card">
-            <div class="card-header">
-              <%= commitment.activity.title %>
-            </div>
-            <div class="image-container" style="background-image:url(<%= image_path "sunset.jpg" %>);">
-              <img src="<%= image_path 'check.png' %>" alt="Card image">
-            </div>
-            <div class="card-block">
-              <p class="card-summary"><%= commitment.activity.summary %></p>
-            </div>
-          </div>      
-        </div>
-
-        <% if index % 6 == 3 || index == @commitments.count - 1 %>
-          </div>
-        <% end %>
+       <%= render :partial => "commitments/card-display/activity_card", :locals => {activity: commitment.activity, allow_new_commitments: false, cards_per_row: cards_per_row} %>
 
       <% end %>
 
     <% end %>
-  </div>
 </div>
+
+<%= # render info panes
+render :partial => "commitments/card-display/info_panes", :locals => {cards_per_row: cards_per_row} %>
 
 <div class="row">
   <div class="col-xs-12 text-xs-center">
@@ -59,7 +50,7 @@
   <%
     @categories.each do |category| %>
     
-    <div class="col-xs-3 text-xs-center">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-xs-center">
       <%= link_to new_commitment_path(:category_slug => category.slug) do %>
         <div class="activity_category center-block"></div>
         <p><%= category.title %></p>        

@@ -3,13 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // style the highlight box
-#highlight {
+#highlight, .info-pane:not(.clearfix) {
   background-color:lightgray;
   padding-top:15px;
   margin-bottom: 15px;
   border-radius: 8px;
   
-  #submit-action {
+  .card-holder, .card-description {
+    transition: all 0s;
+  }
+  
+  // make sure card description does not override commit button
+  .card-description-holder {
+    margin-bottom: 65px;
+  }
+  
+  .submit-action {
     margin-top: -50px;
   }
 }
@@ -29,12 +38,22 @@
     transition: all 1s;
 }
 
-.card-holder, .card-description {
-  transition: all 0s;
-}
-
 .card div.image-container {  
-    background-size: 100%;
+  background-size: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  
+  // for xs and sm, limit image height to 100px;
+  @include media-breakpoint-down(sm) {
+    max-height: 100px;
+    
+    img {
+      max-height: 100px;
+      width: auto;
+    }
+  }
 }
 
 .activity, .card-holder {
