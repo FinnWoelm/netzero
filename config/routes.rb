@@ -9,10 +9,6 @@ Rails.application.routes.draw do
   # Public Access    
   get '/home' => 'commitments#index'
   get '/commitments/:category_slug/new' => "commitments#new", :as => "new_commitment"
-
-  resources :commitments
-  resources :users
-  resources :activities
   
   root 'commitments#index'
   # The priority is based upon order of creation: first created -> highest priority.
