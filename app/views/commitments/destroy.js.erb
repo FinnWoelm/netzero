@@ -1,11 +1,33 @@
-destroyCommitment("<%= @commitment.activity.id %>");
+<% if params[:post_action] == "kill" %>
+  destroyCommitment("<%= @commitment.activity.id %>");
+<% else %>
+  uncommit("<%= @commitment.activity.id %>");
+<% end %>
+
 
 // setCommitment(id)
-function destroyCommitment($id) {
-  $("#activity_"+$id).removeClass("committed");
+function uncommit(id) {
+  $("#activity_"+id).removeClass("committed");
 
-  $("#activity_"+$id + " .card-hidden .card-action").html("<%= escape_javascript(render partial: 'commit_form', locals: {activity_id: @commitment.activity.id}) %>");
+  $("#activity_"+id + " .card-hidden .card-action").html("<%= escape_javascript(render partial: 'commit_form', locals: {activity_id: @commitment.activity.id}) %>");
 
   $(".btn-close:visible").click();
+}
+
+// destroys the commitment card
+function destroyCommitment(id){
+  $(".btn-close:visible").click();
+  
+  // move all the cards forward
+  $("#activity_"+id+" .card").slideUp('slow', function() {
+    
+    $($("#activity_"+id).nextAll(".activity").get().reverse()).each(function() {
+      $(this).insertAfter($(this).prevAll(".activity").first());
+    });
+
+    // remove old activity
+    $("#activity_"+id).remove();
+    
+  });
 }
         

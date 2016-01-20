@@ -1,4 +1,5 @@
 //= require jquery
+//= require jquery.turbolinks
 //= require tether
 //= require bootstrap
 //= require highcharts

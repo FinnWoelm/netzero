@@ -1,9 +1,4 @@
 <!-- uncommit form -->
-<!--<%= link_to commitment, method: :delete, remote: true, class: "btn btn-danger" do %>
-  
-<% end %>
-%>-->
-
-<%= button_to commitment, class: "btn btn-danger", remote: true, method: :delete do %>
+<%= button_to commitment, class: "btn btn-danger", remote: true, method: :delete, params: {post_action: post_action} do %>
   <%= fa_icon "times" %> Un-Commit
 <% end %>

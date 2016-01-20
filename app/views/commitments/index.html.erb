@@ -21,7 +21,7 @@
 
        <%= render :partial => "commitments/card-display/clearfixes", :locals => {cards_per_row: cards_per_row, index: index} %>
 
-       <%= render :partial => "commitments/card-display/activity_card", :locals => {activity: commitment.activity, allow_new_commitments: false, cards_per_row: cards_per_row} %>
+       <%= render :partial => "commitments/card-display/activity_card", :locals => {activity: commitment.activity, allow_new_commitments: false, cards_per_row: cards_per_row, post_action: "kill"} %>
 
       <% end %>
 

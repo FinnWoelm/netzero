@@ -17,7 +17,7 @@
           <% if allow_new_commitments and not @commitments.exists?(activity: activity) %>
             <%= render partial: 'commit_form', locals: {activity_id: activity.id} %>
           <% else %>
-            <%= render partial: 'uncommit_form', locals: {commitment: @commitments.find_by(activity: activity)} %>
+            <%= render partial: 'uncommit_form', locals: {commitment: @commitments.find_by(activity: activity), post_action: post_action} %>
           <% end %>
         </div>
       </div>

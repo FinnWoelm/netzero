@@ -25,7 +25,7 @@
   render :partial => "commitments/card-display/clearfixes", :locals => {cards_per_row: cards_per_row, index: index} %>
 
   <%= # render activity card
-  render :partial => "commitments/card-display/activity_card", :locals => {activity: activity, allow_new_commitments: true, cards_per_row: cards_per_row} %>
+  render :partial => "commitments/card-display/activity_card", :locals => {activity: activity, allow_new_commitments: true, cards_per_row: cards_per_row, post_action: "keep"} %>
 
   
 <% end %>

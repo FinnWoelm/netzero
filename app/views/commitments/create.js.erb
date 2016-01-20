@@ -4,7 +4,7 @@ setCommitment("<%= @commitment.activity.id %>");
 function setCommitment($id) {
   $("#activity_"+$id).addClass("committed");
 
-  $("#activity_"+$id + " .card-hidden .card-action").html("<%= escape_javascript(render partial: 'uncommit_form', locals: {commitment: @commitment}) %>");
+  $("#activity_"+$id + " .card-hidden .card-action").html("<%= escape_javascript(render partial: 'uncommit_form', locals: {commitment: @commitment, post_action: 'keep'}) %>");
 
   $(".btn-close:visible").click();
 }
