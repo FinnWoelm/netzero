@@ -1,10 +1,13 @@
 class CommitmentsController < ApplicationController
+  
+  before_filter :authorize
+  
   before_action :set_commitment, only: [:show, :edit, :update, :destroy]
 
   # GET /commitments
   # GET /commitments.json
   def index
-    @commitments = Commitment.all
+    @commitments = current_user.commitments.all
     @categories = ActivityCategory.all
   end
 
@@ -27,6 +30,7 @@ class CommitmentsController < ApplicationController
   # POST /commitments.json
   def create
     @commitment = Commitment.new(commitment_params)
+    @commitment.user = current_user
 
     respond_to do |format|
       if @commitment.save

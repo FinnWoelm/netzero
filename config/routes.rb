@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   
   
+  # these routes are for showing users a login form, logging them in, and logging them out.
+  get '/login' => 'sessions#new', :as => "login"
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/signup' => 'users#new'
+  post '/signup' => 'users#create'
+  
   # Admin Access
   scope '/admin' do
     resources :activity_categories      
@@ -11,10 +19,10 @@ Rails.application.routes.draw do
   get '/commitments/:category_slug/new' => "commitments#new", :as => "new_commitment"
 
   resources :commitments
-  resources :users
+  #resources :users
   resources :activities
   
-  root 'commitments#index'
+  root 'main#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
