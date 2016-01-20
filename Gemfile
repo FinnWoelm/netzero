@@ -50,6 +50,9 @@ gem 'redcarpet', '~> 3.0.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
+# Use Mandrill for sending email
+gem 'mandrill-api'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
