@@ -35,6 +35,17 @@ Rails.application.configure do
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
 
+  # Set-up Mandrill
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV["MANDRILL_SMTP_ADDRESS"],
+    authentication: 'login',
+    password: ENV["MANDRILL_SMTP_PASSWORD"],
+    port: 587,
+    user_name: ENV["MANDRILL_SMTP_USERNAME"],
+    domain: ENV["MANDRILL_SMTP_DOMAIN"]
+  }
+  
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.
