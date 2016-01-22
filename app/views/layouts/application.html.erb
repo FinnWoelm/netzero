@@ -25,12 +25,12 @@
      <li class="nav-item">
        <% #if user is logged in, then show logout button 
        if current_user %>
-         <%= link_to 'logout', class: "nav-link" do %>
+         <%= link_to logout_path, class: "nav-link" do %>
            <%= fa_icon "sign-out" %> Logout
          <% end %>
        <% #else show login button
        else %>
-       <%= link_to 'login', class: "nav-link "+(current_page?(controller: 'sessions', action: 'new') ? 'active' : '') do %>
+       <%= link_to login_path, class: "nav-link "+(current_page?(controller: 'sessions', action: 'new') ? 'active' : '') do %>
            <%= fa_icon "sign-in" %> Login
          <% end %>
         <% end %>

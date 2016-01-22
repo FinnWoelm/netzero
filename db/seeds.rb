@@ -47,10 +47,10 @@
 #  
 #  ])
 
-transportation = ActivityCategory.create(:title => "Transportation", :slug => "transportation")
-home_energy = ActivityCategory.create(:title => "Home Energy", :slug => "home-energy")
-food = ActivityCategory.create(:title => "Food", :slug => "food")
-consumption = ActivityCategory.create(:title => "Consumption", :slug => "consumption")
+transportation = ActivityCategory.create(:title => "Transportation", :slug => "transportation", :image => File.new("#{Rails.root}/public/images/transportation.jpg"))
+home_energy = ActivityCategory.create(:title => "Home Energy", :slug => "home-energy", :image => File.new("#{Rails.root}/public/images/home-energy.jpg"))
+food = ActivityCategory.create(:title => "Food", :slug => "food", :image => File.new("#{Rails.root}/public/images/food.jpg"))
+consumption = ActivityCategory.create(:title => "Consumption", :slug => "consumption", :image => File.new("#{Rails.root}/public/images/consumption.jpg"))
 
   
 # Transportation
@@ -282,3 +282,16 @@ Activity.create([
     "... facts, tips, resources ..."
     }
 ])
+
+# Create public user
+User.skip_callback(:create, :after, :send_welcome_email_to_user)
+
+u = User.new({
+  :name => "Test",
+  :email => "test",
+  :password => "test"
+  })
+
+u.save(:validate => false)
+
+User.set_callback(:create, :after, :send_welcome_email_to_user)
