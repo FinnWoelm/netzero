@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       redirect_to home_path
     else
     # If user's login doesn't work, send them back to the login form.
+      flash[:error] = "<strong>Oh no!</strong> You\'ve enter the wrong email address or access code."
       redirect_to '/login'
     end
   end

@@ -1,11 +1,26 @@
-<%= flash[:notice] %>
+<% if flash[:info] %>
+<div class="alert alert-info" role="alert">
+  <%= fa_icon("flag 2x") %> <%= flash[:info].html_safe %>
+</div>
+<% end %>
+<% if flash[:error] %>
+<div class="alert alert-danger" role="alert">
+  <%= fa_icon("warning 2x") %> <%= flash[:error].html_safe %>
+</div>
+<% end %>
 
-<h1>Login</h1>
+<h1>Hi there! Good to see you here...</h1>
 
 <%= form_tag '/login' do %>
 
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
+  <fieldset class="form-group">
+    <%= label_tag "email" %>
+    <%= text_field_tag "email", "", placeholder: "Enter your email address...", class: "form-control" %>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= label_tag "password", "Access Code" %>
+    <%= password_field_tag "password", "", placeholder: "Enter your access code...", class: "form-control" %>
+  </fieldset>
+  <%= submit_tag "Login", class: "btn btn-primary" %>
 
 <% end %>

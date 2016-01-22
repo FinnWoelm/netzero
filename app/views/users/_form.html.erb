@@ -1,5 +1,5 @@
 <%= form_for(@user, url: '/signup') do |f| %>
-  <% if @user.errors.any? %>
+  <!--<% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
@@ -9,17 +9,15 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %>-->
 
-  <div class="field">
-    <%= f.label :name, "Hi there! What's your name?" %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email, "Enter your Naropa email address so that we can email you your access code" %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <fieldset class="form-group">
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, placeholder: "Hi there! What's your name?", class: "form-control" %>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= f.label :email, "E-Mail Address (@naropa.edu or @students.naropa.edu)" %>
+    <%= f.text_field :email, placeholder: "Enter your Naropa email address", class: "form-control" %>
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Sign Up</button>
 <% end %>
