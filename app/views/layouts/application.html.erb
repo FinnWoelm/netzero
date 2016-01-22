@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Naropa For Carbon Neutrality</title>
+  <title>GreenNaropa</title>
   
   <!-- Required meta tags always come first -->
   <meta charset="utf-8">
@@ -17,7 +17,9 @@
   
 <nav class="navbar navbar-full navbar-dark bg-primary bg-inverse">
   <div class="container">
-    <a class="navbar-brand" href="/">Naropa For Carbon Neutrality</a>
+    <%= link_to is_signed_in ? home_path : '/', class: "navbar-brand" do %>
+      GreenNaropa
+    <% end %>
     
    <ul class="nav navbar-nav pull-xs-right">
      <li class="nav-item">

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
   
   # Public Access    
-  get '/home' => 'commitments#index'
+  get '/home' => 'commitments#index', :as => "home"
   get '/commitments/:category_slug/new' => "commitments#new", :as => "new_commitment"
 
   resources :commitments

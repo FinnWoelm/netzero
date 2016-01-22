@@ -9,6 +9,12 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
 
+  def is_signed_in
+    return current_user
+  end
+  
+  helper_method :is_signed_in
+  
   def authorize
     redirect_to '/login' unless current_user
   end
