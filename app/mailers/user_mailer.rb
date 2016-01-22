@@ -13,7 +13,7 @@ class UserMailer < BaseMandrillMailer
     
     body = mandrill_template("welcome-to-greennaropa", merge_vars)
 
-    send_mail(email, subject, body)
+    send_mail("#{name} <#{email}>", subject, body)
 
   end
 end
