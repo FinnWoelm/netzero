@@ -1,15 +1,19 @@
 class UserMailer < BaseMandrillMailer
-  def welcome(user_id)
-    user = User.find(user_id)
-    subject = "Welcome to our awesome app!"
-    #merge_vars = {
-    #  "FIRST_NAME" => user.first_name,
-    #  "USER_URL" => user_url(user),
-    #}
-    #body = mandrill_template("welcome", merge_vars)
-
-    body ="hi"
+  def welcome(email, name, password)
     
-    send_mail(user.email, subject, body)
+    
+    #mail(to: email, subject: "Welcome to Puppify!")
+    
+    subject = "#{name}, welcome to GreenNaropa!"
+    merge_vars = {
+      "NAME" => name,
+      "EMAIL" => email,
+      "CODE" => password
+    }
+    
+    body = mandrill_template("welcome-to-greennaropa", merge_vars)
+
+    send_mail(email, subject, body)
+
   end
 end

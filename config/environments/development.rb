@@ -14,7 +14,20 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  
+  # Set-up Mandrill in Sandbox mode
+  config.action_mailer.smtp_settings = {
+    address: ENV["MANDRILL_SMTP_ADDRESS"],
+    authentication: 'login',
+    password: ENV["MANDRILL_SMTP_PASSWORD"],
+    port: 587,
+    user_name: ENV["MANDRILL_SMTP_USERNAME"],
+    domain: ENV["MANDRILL_SMTP_DOMAIN"]
+  }
+  #config.action_mailer.default_url_options = { host: ENV["MANDRILL_SMTP_DOMAIN"] }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -38,17 +51,5 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  
-  # Set-up Mandrill in Sandbox mode
-  config.action_mailer.smtp_settings = {
-    address: ENV["MANDRILL_SANDBOX_SMTP_ADDRESS"],
-    authentication: :plain,
-    domain: ENV["MANDRILL_SANDBOX_SMTP_DOMAIN"],
-    enable_starttls_auto: true,
-    password: ENV["MANDRILL_SANDBOX_SMTP_PASSWORD"],
-    port: "587",
-    user_name: ENV["MANDRILL_SANDBOX_SMTP_USERNAME"]
-  }
-  config.action_mailer.default_url_options = { host: ENV["MANDRILL_SANDBOX_SMTP_DOMAIN"] }
   
 end

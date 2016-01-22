@@ -26,14 +26,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     
-    random_password = Array.new(10).map { (65 + rand(58)).chr }.join
-    @user.password = random_password
-    
-    puts random_password
+    @user.plain_password = Array.new(10).map { (65 + rand(58)).chr }.join
+    @user.password = @user.plain_password
 
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to login_path, notice: 'User was successfully created.' }
+      if @user.save        
+        format.html { render redirect_to login_path, notice: 'User was successfully created.'}
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -76,4 +74,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :name, :code, :password_digest)
     end
+          
 end
