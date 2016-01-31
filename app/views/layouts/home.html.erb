@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>GreenNaropa</title>
+  
+  <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <!-- Stylesheets & Javascript -->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= controller_name %> <%= action_name %>">
+  
+<nav class="navbar navbar-full navbar-dark bg-primary bg-inverse">
+  <div class="container">
+    <%= link_to is_signed_in ? home_path : '/', class: "navbar-brand" do %>
+      GreenNaropa
+    <% end %>
+    
+   <ul class="nav navbar-nav pull-xs-right">
+     <li class="nav-item">
+       <% #if user is logged in, then show logout button 
+       if current_user %>
+         <%= link_to logout_path, class: "nav-link" do %>
+           <%= fa_icon "sign-out" %> Logout
+         <% end %>
+       <% #else show login button
+       else %>
+       <%= link_to login_path, class: "nav-link "+(current_page?(controller: 'sessions', action: 'new') ? 'active' : '') do %>
+           <%= fa_icon "sign-in" %> Login
+         <% end %>
+        <% end %>
+      </li>
+    </ul>
+
+    
+  </div>
+</nav>    
+  
+<div class="container-fluid">  
+  <%= yield %>
+</div>
+
+</body>
+</html>

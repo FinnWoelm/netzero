@@ -2,6 +2,7 @@ class MainController < ApplicationController
   
   # homepage
   def index
+    render layout: "home"
   end
   
   # user is shown the next question
