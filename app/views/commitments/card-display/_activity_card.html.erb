@@ -3,7 +3,7 @@
       <div class="card-header">
         <%= activity.title %>
       </div>
-      <div class="image-container" style="background-image:url(<%= image_path "sunset.jpg" %>);">
+      <div class="image-container" style="background-image:url(<%= image_path activity.image.url(:medium) %>);">
         <img src="<%= image_path 'check.png' %>" alt="Card image">
       </div>
       <div class="card-block">

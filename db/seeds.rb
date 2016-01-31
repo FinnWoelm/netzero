@@ -60,35 +60,37 @@ Activity.create([
   :title => "Bike Friend",
   :summary => "Leave the car at home and bike.",
   :description =>
-"Check out Naropa's Bike Shack for...
-- free assistance in maintainance and bike repair
-- free bike rentals up to two weeks
-- building your own bike from scratch through the Earn-A-Bike program
-
-Other:
-- Recycle old bike tubes with Green Guru
-- You can get an annual membership with B-Cycle for $40 (sign up with your Naropa .edu email address and use the promo code STUDENT)"
+      "- Check out [Naropa's Bike Shack](http://www.naropa.edu/student-life/student-services/transportation/bike-shack.php) for free bike maintainance, repair and rentals
+- Get a membership with [Boulder's bike-sharing program](https://boulder.bcycle.com/) for $40 per year (sign up with your Naropa .edu email address and use the promo code STUDENT)
+- Sign up for [Boulder's free Bus-then-Bike program](http://www.bouldercounty.org/roads/transit/pages/finalmileproject.aspx) and receive access to safe, long-term bicycle storage shelters
+- Did you know that you most Boulder buses have bike racks at the front, allowing you to take your bike with you?
+- Boulder has miles and miles of bike paths &mdash; [see the map](https://www-static.bouldercolorado.gov/docs/map-bike-pedestrian-routes-1-201407111617.pdf)",
+  :image => File.new("#{Rails.root}/public/images/transportation/bike-friend.jpg")
   },
   {
   :category => transportation,
     :title => "Take The Bus",
   :summary => "Take the bus.",
   :description =>
-"..."
+      "- Did you know that you can ride for free on all RTD buses using your Naropa bus pass? Even to the airport!
+- To plan your trip, use [RTD's trip planner](http://www.rtd-denver.com/GoogleTripPlanner.shtml) or just use [Google Maps](https://www.google.com/maps/dir/Naropa+University,+2130+Arapahoe+Avenue,+Boulder,+CO+80302/Naropa+University+Nalanda+Campus,+6287+Arapahoe+Avenue,+Boulder,+CO+80301/@40.0149543,-105.2717109,13z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x876bec2d6ad31cb1:0x298dfceb72968f05!2m2!1d-105.2671672!2d40.0138766!1m5!1m1!1s0x876bf211fb8a1919:0xfdb733d2057a0f22!2m2!1d-105.2074092!2d40.0160426!3e3)",
+  :image => File.new("#{Rails.root}/public/images/transportation/bus.jpg")
   },
   {
   :category => transportation,
-    :title => "...",
+    :title => "Bring Your Friends",
   :summary => "Carpool.",
   :description =>
-"..."
+      "- Use [GasBuddy](http://then.gasbuddy.com/Trip_Calculator.aspx) to calculate both trip costs and carbon emissions",
+  :image => File.new("#{Rails.root}/public/images/transportation/carpool.jpg")
   },
   {
   :category => transportation,
-    :title => "...",
-    :summary => "Regularly check your tire pressures.",
+  :title => "Add Some Air",
+  :summary => "Regularly check your tire pressures.",
   :description =>
-"..."
+      "Learn more at [http://www.sustainablebabysteps.com/inflating-tires.html](http://www.sustainablebabysteps.com/inflating-tires.html)",
+  :image => File.new("#{Rails.root}/public/images/transportation/tire-pressure.jpg")
   },
   {
   :category => transportation,
@@ -97,7 +99,22 @@ Other:
   :description =>
 "To improve your fuel economy and reduce greenhouse gas emissions, go easy on the brakes and gas pedal, avoid hard accelerations, reduce your time spent idling (no more than 30 seconds), and unload unnecessary items in your trunk to reduce weight. If you have a removable roof rack and you are not using it, take it off to improve your fuel economy. Use cruise control if you have it, and for vehicles with selectable four-wheel drive, consider operating in two-wheel drive mode when road conditions make it safe to do so.
 
-[Source: EPA]"
+[Source: EPA]",
+  :image => File.new("#{Rails.root}/public/images/transportation/drive-smart.jpg")
+  },
+  {
+  :category => transportation,
+    :title => "Fly Green",
+    :summary => "Offset your flight-related carbon emissions.",
+  :description =>
+      "- Because of the altitude, emissions from airplanes are two times worse than emissions caused on the ground &mdash; a phenomenon called [radiative forcing](http://www.treehugger.com/aviation/what-the-heck-is-radiative-forcing-why-should-my-aviation-carbon-offset-include-it.html)
+
+Check out various carbon footprint calculator and offset sites:
+
+- [International Civil Aviation Organization](http://www.icao.int/environmental-protection/CarbonOffset/Pages/default.aspx)
+- [Carbon Footprint](http://calculator.carbonfootprint.com/calculator.aspx?tab=3)
+- [TerraPass](http://www.terrapass.com/carbon-footprint-calculator/)",
+  :image => File.new("#{Rails.root}/public/images/transportation/airplane.jpg")
   }
 ])
 
@@ -109,7 +126,8 @@ Activity.create([
   :summary => "Wash clothes with cold water.",
   :description =>
 "- Average savings
-- Cold water washing detergent"
+- Cold water washing detergent",
+    :image => File.new("#{Rails.root}/public/images/home-energy/washing-machine.jpg")
   },
 
   {
@@ -118,7 +136,8 @@ Activity.create([
   :summary => "Replace your light bulbs with LEDs.",
   :description =>
 "- where to buy
-- price"
+- price",
+    :image => File.new("#{Rails.root}/public/images/home-energy/leds.jpg")
   },
   
   {
@@ -126,7 +145,8 @@ Activity.create([
   :title => "Pull The Plug",
   :summary => "Unplug devices that are not in use.",
   :description => 
-  "- phantom power"
+  "- phantom power",
+    :image => File.new("#{Rails.root}/public/images/home-energy/unplug.jpg")
   },
   
   {
@@ -134,7 +154,8 @@ Activity.create([
   :title => "Keep It Cool",
   :summary => "Turn down your thermostat.",
   :description => 
-  "TBA"
+  "TBA",
+    :image => File.new("#{Rails.root}/public/images/home-energy/thermostat.jpg")
   },  
   
   {
@@ -142,7 +163,8 @@ Activity.create([
   :title => "Speed Shower",
   :summary => "Take shorter showers and fewer baths.",
   :description => 
-  "TBA"
+  "TBA",
+    :image => File.new("#{Rails.root}/public/images/home-energy/shower.jpg")
   },
 
   {
@@ -150,7 +172,8 @@ Activity.create([
     :title => "Conserve 'Em",
     :summary => "Turn down your fridge.",
   :description => 
-  "TBA"
+  "TBA",
+    :image => File.new("#{Rails.root}/public/images/home-energy/fridge.jpg")
   },  
   
   {
@@ -158,7 +181,8 @@ Activity.create([
     :title => "Cool Dish Washer",
     :summary => "Wash your dishes in cold water.",
   :description => 
-  "TBA"
+  "TBA",
+    :image => File.new("#{Rails.root}/public/images/home-energy/washing-dishes.jpg")
   },  
   
   {
@@ -166,7 +190,8 @@ Activity.create([
    :title => "Audition, Please!",
    :summary => "Get a home energy audit.",
   :description => 
-  "TBA"
+  "TBA",
+    :image => File.new("#{Rails.root}/public/images/home-energy/audit.jpg")
   }
 ])
 
@@ -178,7 +203,8 @@ Activity.create([
     :summary => "Buy more local, organic, and seasonal food.",
   :description => 
   "- Check out Boulder County Farmer's Market (every Saturday from April to November)
-- Alfalfas offers free delivery on weekdays"
+- Alfalfas offers free delivery on weekdays",
+    :image => File.new("#{Rails.root}/public/images/food/local.jpg")
     },
     {
   :category => food,
@@ -189,7 +215,8 @@ Activity.create([
 
 - You're currently eating a lot of meat? Start out by having one veggie day per week. Then increase to two, three, four, five, six, and seven veggie days per week!
 - You're already vegetarian? Try having a vegan day at least once a week! Then increase it to two, three, four, five, six, or even seven days a week.
-- You're already vegan? Awesome."
+- You're already vegan? Awesome.",
+    :image => File.new("#{Rails.root}/public/images/food/vegetables.jpg")
     },
       {
   :category => food,
@@ -198,14 +225,16 @@ Activity.create([
   :description => 
   "- You can get free Coloradan seeds at the Seeds Boulder Public Library cafe
 - You can help reduce CO2 in the atmosphere by purchasing tree offsets
-- You can purchase organic seeds and plants at Harlequin's Gardens in North Boulder"
+- You can purchase organic seeds and plants at Harlequin's Gardens in North Boulder",
+  :image => File.new("#{Rails.root}/public/images/food/plant.jpg")
     },
     {
   :category => food,
         :title => "Bulk Commodity",
     :summary => "Buy in bulk.",
   :description => 
-  "..."
+  "...",
+    :image => File.new("#{Rails.root}/public/images/food/bulk.jpg")
     }
 ])
   
@@ -216,70 +245,72 @@ Activity.create([
     :title => "Refill Please",
     :summary => "Use a reusable water bottle.",
   :description => 
-    "... facts, tips, resources ..."
+    "... facts, tips, resources ...",
+    :image => File.new("#{Rails.root}/public/images/consumption/water-bottle.jpg")
     },
     {
   :category => consumption,
   :title => "Bag",
   :summary => "Bring your own grocery bags.",
   :description => 
-    "... facts, tips, resources ..."
+    "... facts, tips, resources ...",
+    :image => File.new("#{Rails.root}/public/images/consumption/bag.jpg")
     },
     {
   :category => consumption,
   :title => "Thrift Shopper",
   :summary => "Buy or exchange second-hand clothing.",
   :description => 
-    "... facts, tips, resources ..."
-    },
-    {
-  :category => consumption,
-  :title => "Thrift Shopper",
-  :summary => "Buy or exchange second-hand clothing.",
-  :description => 
-    "... facts, tips, resources ..."
+    "... facts, tips, resources ...",
+      :image => File.new("#{Rails.root}/public/images/consumption/exchange.jpg")
     },
     {
     :category => consumption,
   :title => "...",
     :summary => "Borrow or exchange books.",
   :description => 
-    "... facts, tips, resources ..."
+    "... facts, tips, resources ...",
+    :image => File.new("#{Rails.root}/public/images/consumption/books.jpg")
     },
     {
     :category => consumption,
     :title => "Old School",
     :summary => "Keep your phone (don't buy a new one).",
   :description => 
-    "... facts, tips, resources ..."
+    "... facts, tips, resources ...",
+    :image => File.new("#{Rails.root}/public/images/consumption/phone.jpg")
     },
     {
     :category => consumption,
     :title => "...",
     :summary => "Keep your laptop (don't buy a new one).",
   :description => 
-    "... facts, tips, resources ..."
+    "... facts, tips, resources ...",
+    :image => File.new("#{Rails.root}/public/images/consumption/laptop.jpg")
     },
     {
     :category => consumption,
     :title => "...",
       :summary => "Buy recycled toilet paper.",
   :description => 
-    "... facts, tips, resources ..."
+    "... facts, tips, resources ...",
+    :image => File.new("#{Rails.root}/public/images/consumption/toilet-paper.jpg")
     },
     {
     :category => consumption,
     :title => "Zero Waste",
     :summary => "Recycle all waste.",
   :description => 
-    "... facts, tips, resources ..."
+    "... facts, tips, resources ...",
+    :image => File.new("#{Rails.root}/public/images/consumption/zero-waste.jpg")
     },
     {
     :category => consumption,
     :title => "...",
       :summary => "Read articles for class digitally.",
   :description => 
-    "... facts, tips, resources ..."
+    "... facts, tips, resources ...",
+    :image => File.new("#{Rails.root}/public/images/consumption/read-digitally.jpg")
     }
 ])
 

@@ -19,7 +19,7 @@ class CommitmentsController < ApplicationController
   # GET /commitments/new
   def new
     @commitments = current_user.commitments.all
-    @activities = ActivityCategory.find_by(slug: params[:category_slug]).activities
+    @activities = ActivityCategory.find_by(slug: params[:category_slug]).activities.shuffle
   end
 
   # GET /commitments/1/edit
