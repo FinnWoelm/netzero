@@ -5,7 +5,7 @@ class BaseMandrillMailer < ActionMailer::Base
   # from https://robots.thoughtbot.com/how-to-send-transactional-emails-from-rails-with-mandrill
   
   default(
-    from: "GreenNaropa <do-not-reply@fwoelm.com>"
+    from: "GreenNaropa <do-not-reply@greennaropa.com>"
   )
 
   private
