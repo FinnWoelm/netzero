@@ -21,36 +21,54 @@
 // main index view
 body.main.index {
   
-  color: white;
-  
   // background image
   .spacing {
     height: 200px;
   }
-  
+
   .spacing-small {
     height: 100px;
   }
-  
+
   .spacing-mini {
     height: 20px;
   }
   
-  a.btn {
-    background-color: rgba($brand-primary, .5);
-    transition: all .5s ease-out;
-    border-color: white;
-    
-    &:hover, &:focus, &:active {
-      background-color: rgba($brand-primary, .9);
-      border-color: darken($brand-primary, 20%);
-      box-shadow: 0px 0px 10px $brand-primary;
+  .row.banner {
+    color: white;
+
+    a.btn {
+      background-color: rgba($brand-primary, .5);
+      transition: all .5s ease-out;
+      border-color: white;
+
+      &:hover, &:focus, &:active {
+        background-color: rgba($brand-primary, .9);
+        border-color: darken($brand-primary, 20%);
+        box-shadow: 0px 0px 10px $brand-primary;
+      }
+    }
+
+    // text shadow to increase readability over background
+    h1, h5 {
+      text-shadow: 0px 0px 3px black, 0px 0px 10px black;
     }
   }
   
-  // text shadow to increase readability over background
-  h1, h5 {
-    text-shadow: 0px 0px 3px black, 0px 0px 10px black;
+  img {
+    width: 100%;
+  }
+  
+  #how-it-works {    
+    img, p, h1 {
+      margin-bottom:30px;
+    }
+  }
+  
+  #partnerships {
+    img {
+      width: auto;
+    }
   }
 }
 

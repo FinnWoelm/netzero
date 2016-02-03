@@ -1,38 +1,119 @@
-<div class="row" style="background: url(<%= asset_path 'backgrounds/bike-friend.jpg' %>) no-repeat center center; 
+<!-- TOP BANNER -->
+
+<%
+background = [
+  {img: "bike-friend.jpg",
+    action: "bike to class",
+    descriptor: "Biking"}, 
+  {img: "food.jpg",
+    action: "buy local food",
+    descriptor: "Buying locally"},
+  {img: "bus.jpg",
+    action: "ride the bus",
+    descriptor: "Taking the bus"},
+  {img: "tree.jpg",
+    action: "plant trees",
+    descriptor: "Planting trees"}].sample
+%>
+
+<div class="row banner" style="background: url(<%= asset_path 'backgrounds/' + background[:img] %>) no-repeat center center; 
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;">
   <div class="col-xs-12">
-    <div class="row">
-      <div class="col-xs-12">
+    
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
 
-        <div class="spacing">
+          <div class="spacing">
+          </div>
+
+          <h1 class="text-xs-center display-4">
+            I will <strong><%= background[:action] %></strong>
+          </h1>
+
+          <div class="spacing-small">
+          </div>
         </div>
+      </div>
 
-        <h1 class="text-xs-center display-4">
-          I will <strong>bike to class</strong>
-        </h1>
-
-        <div class="spacing-small">
+      <div class="row">
+        <div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4 text-xs-center">
+          <h5>Climate change is real. <%= background[:descriptor] %> is one way to make a difference. What will <strong>you</strong> do in 2016?</h5>
+          <div class="spacing-mini"></div>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4 text-xs-center">
-        <h5>Climate change is real. Biking is one way to make a difference. What will <strong>you</strong> do in 2016?</h5>
-        <div class="spacing-mini"></div>
-      </div>
+      <div class="row">
+        <div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-6  col-md-offset-3 col-lg-4 col-lg-offset-4 col-xl-2 col-xl-offset-5">
+            <%= link_to '/signup', class: "btn btn-primary btn-lg btn-block" do %>
+              <%= fa_icon "check", :class => "fa-fw" %> Get Started
+            <% end %>
+          <div class="spacing-small"></div>
+        </div>
+      </div>      
     </div>
+  </div>
+</div>
 
-    <div class="row">
-      <div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2 col-md-6  col-md-offset-3 col-lg-4 col-lg-offset-4 col-xl-2 col-xl-offset-5">
-          <%= link_to '/signup', class: "btn btn-primary btn-lg btn-block" do %>
-            <%= fa_icon "check", :class => "fa-fw" %> Get Started
-          <% end %>
-        <div class="spacing-small"></div>
-      </div>
+<div class="spacing-mini"></div>
+
+<!-- HOW IT WORKS -->
+<div id="how-it-works" class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>How It Works</h1>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-xs-5 col-md-3">
+      <%= image_tag "step1.png", class: "img-fluid img-thumbnail" %>
+    </div>
+    <div class="col-xs-7 col-md-9">
+      <h3>Browse Actions</h3>
+      <p>Search through our list of dozens of different climate actions.</p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-xs-5 col-md-3">
+      <%= image_tag "sunset.jpg", class: "img-fluid img-thumbnail" %>
+    </div>
+    <div class="col-xs-7 col-md-9">
+      <h3>Discover Resources</h3>
+      <p>Each action comes with insightful facts, helpful information, and valuable tips to help transform your commitment into a habit.</p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-xs-5 col-md-3">
+      <%= image_tag "step3.png", class: "img-fluid img-thumbnail" %>
+    </div>
+    <div class="col-xs-7 col-md-9">
+      <h3>Commit &amp; Act</h3>
+      <p>As you commit to take certain climate actions, you are joining a global movement to put an end to climate change.</p>
+    </div>
+  </div>
+  
+  
+<hr/>
+  
+</div>
+
+
+<!-- PARTNERSHIP -->
+<div id="partnerships" class="container">
+  <div class="row text-xs-center" style="align-items: center;">
+    <div class="col-xs-4 col-md-6 text-xs-center text-muted">
+      <h3>In collaboration with...</h3>
+    </div>
+    <div class="col-xs-8 col-md-6">
+      <%= image_tag "sc-logo.png", style: "width: 100px;" %>
+      <h5>Sustainability Council</h5>
+      <p>The Naropa Sustainability Council supports the university in its climate action endeavors. It serves as a bridge between students and administration.</p>
     </div>
   </div>
 </div>

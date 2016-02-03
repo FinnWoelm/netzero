@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>GreenNaropa</title>
+  <title>GreenNaropa &mdash; Tackling climate change one action at a time</title>
   
   <!-- Required meta tags always come first -->
   <meta charset="utf-8">
@@ -15,10 +15,10 @@
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
   
-<nav class="navbar navbar-full navbar-dark bg-primary bg-inverse">
+<nav id="header" class="navbar navbar-full navbar-dark bg-primary bg-inverse">
   <div class="container">
     <%= link_to is_signed_in ? home_path : '/', class: "navbar-brand" do %>
-      GreenNaropa
+      <%= image_tag('logo.png', height: 50) %>
     <% end %>
     
    <ul class="nav navbar-nav pull-xs-right">
@@ -44,6 +44,22 @@
 <div class="container">  
   <%= yield %>
 </div>
+  
+<nav id="footer" class="navbar navbar-full navbar-dark bg-secondary bg-inverse">
+  <div class="container">
+    <%= link_to is_signed_in ? home_path : '/', class: "navbar-brand" do %>
+      <%= image_tag('logo.png', height: 50) %>
+    <% end %>
+    
+   <ul class="nav navbar-nav pull-xs-right">
+     <li class="nav-item">
+      Got something to say? We'd love to hear from you: <a class="nav-link" target="_blank" href="mailto:sayhi@greennaropa.com">sayhi@greennaropa.com</a> <%= fa_icon "heart" %> 
+    </li>
+  </ul>
+
+    
+  </div>
+</nav>
 
 </body>
 </html>
