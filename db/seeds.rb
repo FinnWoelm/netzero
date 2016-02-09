@@ -73,7 +73,9 @@ Activity.create([
   :summary => "Take the bus.",
   :description =>
       "- Did you know that you can ride for free on all RTD buses using your Naropa bus pass? Even to the airport!
-- To plan your trip, use [RTD's trip planner](http://www.rtd-denver.com/GoogleTripPlanner.shtml) or just use [Google Maps](https://www.google.com/maps/dir/Naropa+University,+2130+Arapahoe+Avenue,+Boulder,+CO+80302/Naropa+University+Nalanda+Campus,+6287+Arapahoe+Avenue,+Boulder,+CO+80301/@40.0149543,-105.2717109,13z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x876bec2d6ad31cb1:0x298dfceb72968f05!2m2!1d-105.2671672!2d40.0138766!1m5!1m1!1s0x876bf211fb8a1919:0xfdb733d2057a0f22!2m2!1d-105.2074092!2d40.0160426!3e3)",
+- Taking the bus not only saves you money on fuel and maintenance, but also [significantly reduces your carbon footprint](http://www.beagleybrown.com/planes-trains-or-automobiles-carbon-emissions-compared-for-different-forms-of-transport/)
+- To plan your trip, use [RTD's trip planner](http://www.rtd-denver.com/GoogleTripPlanner.shtml) or just use [Google Maps](https://www.google.com/maps/dir/Naropa+University,+2130+Arapahoe+Avenue,+Boulder,+CO+80302/Naropa+University+Nalanda+Campus,+6287+Arapahoe+Avenue,+Boulder,+CO+80301/@40.0149543,-105.2717109,13z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x876bec2d6ad31cb1:0x298dfceb72968f05!2m2!1d-105.2671672!2d40.0138766!1m5!1m1!1s0x876bf211fb8a1919:0xfdb733d2057a0f22!2m2!1d-105.2074092!2d40.0160426!3e3)
+- In most cases, you can even take your bike with you (using the bike racks)",
   :image => File.new("#{Rails.root}/public/images/transportation/bus.jpg")
   },
   {
@@ -81,7 +83,9 @@ Activity.create([
     :title => "Bring Your Friends",
   :summary => "Carpool.",
   :description =>
-      "- Use [GasBuddy](http://then.gasbuddy.com/Trip_Calculator.aspx) to calculate both trip costs and carbon emissions",
+      "- Carpooling with one to four friends or classmates greatly reduces carbon emissions
+- In your classes, ask who lives nearby and carpool with them. It's a great way to make friends and save the environment
+- Use [GasBuddy](http://then.gasbuddy.com/Trip_Calculator.aspx) to calculate both trip costs and carbon emissions",
   :image => File.new("#{Rails.root}/public/images/transportation/carpool.jpg")
   },
   {
@@ -89,17 +93,25 @@ Activity.create([
   :title => "Add Some Air",
   :summary => "Regularly check your tire pressures.",
   :description =>
-      "Learn more at [http://www.sustainablebabysteps.com/inflating-tires.html](http://www.sustainablebabysteps.com/inflating-tires.html)",
+      "- Having underinflated tires decreases your fuel economy by up to 10% and increases the wear on your tires
+- Check your tire pressure at least once a month (some recommend checking it every time you get gas)
+- Make sure your tires are cold when checking and inflating them (not having driven during the past 4-5 hours)
+- Learn more [ensuring proper tire inflation here](http://www.sustainablebabysteps.com/inflating-tires.html)",
   :image => File.new("#{Rails.root}/public/images/transportation/tire-pressure.jpg")
   },
   {
   :category => transportation,
     :title => "Drive Smart",
-    :summary => "Go easy on the brakes and the gas pedal.",
+    :summary => "Accelerate slowly and anticipate stops.",
   :description =>
-"To improve your fuel economy and reduce greenhouse gas emissions, go easy on the brakes and gas pedal, avoid hard accelerations, reduce your time spent idling (no more than 30 seconds), and unload unnecessary items in your trunk to reduce weight. If you have a removable roof rack and you are not using it, take it off to improve your fuel economy. Use cruise control if you have it, and for vehicles with selectable four-wheel drive, consider operating in two-wheel drive mode when road conditions make it safe to do so.
+"- Go easy on the brakes and gas pedal
+- Avoid hard accelerations
+- Reduce your time spent idling (no more than 30 seconds)
+- Unload unnecessary items in your trunk to reduce weight
+- Use cruise control if you have it
+- For vehicles with selectable four-wheel drive, consider operating in two-wheel drive mode when road conditions make it safe to do so
 
-[Source: EPA]",
+Source: [EPA](www3.epa.gov/climatechange/wycd/road.html)",
   :image => File.new("#{Rails.root}/public/images/transportation/drive-smart.jpg")
   },
   {
@@ -125,8 +137,12 @@ Activity.create([
   :title => "Cold As Ice",
   :summary => "Wash clothes with cold water.",
   :description =>
-"- Average savings
-- Cold water washing detergent",
+      "- 90% of the energy used in washing clothes goes towards heating the water [Treehugger](http://www.treehugger.com/culture/washing-laundry-in-cold-water-is-the-same-as.html)
+- Unless your clothes are seriously stained, there is no difference in cleanliness between using hot and cold water. In fact, hot water actually does the most damage to clothes (shrinking, wrinkling, fading)
+- Most detergents work fine on the cold-water setting, but if you are unsatisfied, there are specific cold-water detergents to choose from
+- By washing on cold cycle, the average American family can reduce its carbon footprint by more than 2,000 pounds
+- If you're getting a new washing machine, look out for the [Energy Star label](http://energy.gov/energysaver/tips-shopping-appliances)
+- Interested in [making your own laundry soap](http://www.lizmarieblog.com/2013/05/diy-laundry-soap-one-year-review-recipe/)?",
     :image => File.new("#{Rails.root}/public/images/home-energy/washing-machine.jpg")
   },
 
@@ -135,8 +151,11 @@ Activity.create([
   :title => "Light It Up",
   :summary => "Replace your light bulbs with LEDs.",
   :description =>
-"- where to buy
-- price",
+      "- LEDs are up to 80% more efficient than regular light bulbs: 95% of energy is converted into light and only 5% wasted as heat
+- Because of their efficiency, they reduce both your carbon footprint and your eletricity bill
+- LEDs also have a 6 times longer lifespan than ordinary light bulbs
+- You can buy LEDs between $5-15 at most larger store, such as King Soopers, Target, or BestBuy
+- You can also compare prices and buy LEDs online from [EarthLED](https://www.earthled.com/)",
     :image => File.new("#{Rails.root}/public/images/home-energy/leds.jpg")
   },
   
@@ -145,7 +164,9 @@ Activity.create([
   :title => "Pull The Plug",
   :summary => "Unplug devices that are not in use.",
   :description => 
-  "- phantom power",
+    "- Leaving your electronic devices plugged in continuously consumes electricity, so-called phantom power
+- According to Energy Star, the average household spends $100 a year to power devices that are turned off
+- You can avoid wasting electricity by simply pulling the plug. Or you can buy a power strip, which uses no electricity when turned off.",
     :image => File.new("#{Rails.root}/public/images/home-energy/unplug.jpg")
   },
   
@@ -154,8 +175,11 @@ Activity.create([
   :title => "Keep It Cool",
   :summary => "Turn down your thermostat.",
   :description => 
-  "TBA",
-    :image => File.new("#{Rails.root}/public/images/home-energy/thermostat.jpg")
+    "- Heating makes up the majority of household energy use
+- Set your thermostat to 68&#x00b0;F while you are awake and to the mid 50s while you're away or asleep
+- Learn more about home heating in [this infographic from the Department of Energy](http://energy.gov/articles/energy-saver-101-infographic-home-heating)
+- Learn how to use a programmable thermostat in [this interactive tutorial](http://www.energystar.gov/index.cfm?c=thermostats.progThermostat)",
+  :image => File.new("#{Rails.root}/public/images/home-energy/thermostat.jpg")
   },  
   
   {
@@ -202,8 +226,12 @@ Activity.create([
     :title => "Seasoned Eater",
     :summary => "Buy more local, organic, and seasonal food.",
   :description => 
-  "- Check out Boulder County Farmer's Market (every Saturday from April to November)
-- Alfalfas offers free delivery on weekdays",
+  "- Check out [Boulder County Farmer's Market](http://www.bcfm.org/) (every Saturday from April 2 to November 19) for a wide selection of local and seasonal foods
+- Did you know that [Alfalfa's offers a free delivery serice](https://www.alfalfas.com/special-services/delivery/)?
+- The entire produce section of [Vitamin Cottage](https://www.naturalgrocers.com/store-location/boulder/) is organic!
+- On a budget? [Learn which 15 vegetables and fruits are most and least contaminated with pesticides](http://static.foodnews.org/pdf/EWG-shoppers-guide.pdf)
+- Check out the [CFM crop calendar](http://coloradofreshmarkets.com/wp-content/uploads/2015/04/cfm_crop_calendar.pdf) to learn what's in season
+- [Door to Door Organics](https://colorado.doortodoororganics.com/how-it-works) is a weekly local and organic grocery delivery service right to your doorstep",
     :image => File.new("#{Rails.root}/public/images/food/local.jpg")
     },
     {
@@ -211,11 +239,12 @@ Activity.create([
       :title => "Plant Muncher",
     :summary => "Have more plant-based meals.",
   :description => 
-  "-
-
-- You're currently eating a lot of meat? Start out by having one veggie day per week. Then increase to two, three, four, five, six, and seven veggie days per week!
-- You're already vegetarian? Try having a vegan day at least once a week! Then increase it to two, three, four, five, six, or even seven days a week.
-- You're already vegan? Awesome.",
+      "- The FAO estimates that 18% of global greenhouse gas emissions are attributable to livestock ([FAO](http://www.fao.org/docrep/010/a0701e/a0701e00.HTM))
+- Switching from a meat-intense to a vegan-diet can reduce your carbon footprint by almost 2t CO₂ per year ([Shrink That Footprint](http://shrinkthatfootprint.com/food-carbon-footprint-diet))
+- You're currently eating a lot of meat? Start out by having one veggie day per week.
+- You're already vegetarian? Try having a vegan day once a week!
+- You're already vegan? Keep it up.
+- Check out [Peta's guide for transitioning to a vegetarian or vegan diet](http://www.peta.org/living/food/making-transition-vegetarian/)",
     :image => File.new("#{Rails.root}/public/images/food/vegetables.jpg")
     },
       {
@@ -223,9 +252,10 @@ Activity.create([
         :title => "Tree Hugger",
     :summary => "Plant your own food plants or trees.",
   :description => 
-  "- You can get free Coloradan seeds at the Seeds Boulder Public Library cafe
-- You can help reduce CO2 in the atmosphere by purchasing tree offsets
-- You can purchase organic seeds and plants at Harlequin's Gardens in North Boulder",
+  "- You can get free Coloradan seeds at the [Seeds Boulder Public Library cafe](http://seedsboulder.com/)
+- You can purchase organic seeds and plants at [Harlequin's Gardens](http://www.harlequinsgardens.com/) in North Boulder
+- You can plant your own trees or [help reduce CO&u2082; emissions by protecting existing rainforests](https://standfortrees.org/en/)
+- Get involved with the Naropa Community Greenhouse or the Food Forest",
   :image => File.new("#{Rails.root}/public/images/food/plant.jpg")
     },
     {
@@ -233,21 +263,47 @@ Activity.create([
         :title => "Bulk Commodity",
     :summary => "Buy in bulk.",
   :description => 
-  "...",
+      "- Buying in bulk is more environmentally friendly, uses less packaging, and is often cheaper
+- Did you know you can even buy spices and tea in bulk? Alfalfa's, for example, offers dozens of different spices and teas.",
     :image => File.new("#{Rails.root}/public/images/food/bulk.jpg")
+    },
+  {
+  :category => food,
+    :title => "Put It In The Bin",
+    :summary => "Compost all organic waste.",
+    :description => 
+    "- When food waste decomposes in landfills, it produces methane &mdash; a gas 23 to 71 times worse than CO&#x2082;
+- Landfills are the 3rd-largest source of methane emissions in the US ([EPA](http://www3.epa.gov/climatechange/ghgemissions/gases/ch4.html))
+- **Everything** you eat can be composted (including meat, bones, and dairy scraps)!
+- Not sure what can be composted? Check out [Eco-Cycle's handy one-pager](http://ecocycle.org/files/pdfs/CurbsideCompostGuidelines.pdf)
+- When you compost with Eco-Cycle, [your compost is turned into rich Micro Brew soil](http://ecocycle.org/recycle-compost-reuse/microbe-brew) that feeds future plants and trees!
+- If you prefer to start your own backyard compost, check out [this guide](http://ecocycle.org/backyard-composting) for more information",
+    :image => File.new("#{Rails.root}/public/images/food/compost.jpg")
+    },
+  {
+    :category => food,
+    :title => "Refill Please",
+    :summary => "Use a reusable water bottle.",
+  :description => 
+    "- It is estimated that it takes 3 liters of water to produce 1 liter of bottled water
+- It takes over 1.5 million barrels of oil to meet the demand of US water bottle manufacturing
+- A 12 ounce plastic bottle causes 0.15 pounds CO&#x2082; emissions",
+    :image => File.new("#{Rails.root}/public/images/food/water-bottle.jpg")
+    },
+    {
+    :category => food,
+    :title => "Bring Your Own",
+    :summary => "Do not use disposable plates and cutlery.",
+  :description => 
+      "- Most plastic cutlery cannot be recycled
+- While compostable or biodegradable cutlery is a lot better than their plastic counterparts, they still cause more emissions than you bringing your own metal cutlery
+- If you are offered plastic cutlery or paper napkins at a take-out restaurant, ask yourself if you really need them",
+    :image => File.new("#{Rails.root}/public/images/food/plastic-fork.jpg")
     }
 ])
   
 # Consumption
 Activity.create([
-  {
-  :category => consumption,
-    :title => "Refill Please",
-    :summary => "Use a reusable water bottle.",
-  :description => 
-    "... facts, tips, resources ...",
-    :image => File.new("#{Rails.root}/public/images/consumption/water-bottle.jpg")
-    },
     {
   :category => consumption,
   :title => "Bag",
@@ -261,15 +317,19 @@ Activity.create([
   :title => "Thrift Shopper",
   :summary => "Buy or exchange second-hand clothing.",
   :description => 
-    "... facts, tips, resources ...",
+      "- Check out Eco-Cycle's fantastic [Tour de Thrift Map](https://www.ecocycle.org/files/pdfs/Tour-de-Thrift_Boulder.pdf)",
       :image => File.new("#{Rails.root}/public/images/consumption/exchange.jpg")
     },
     {
     :category => consumption,
-  :title => "...",
+  :title => "Book Worm",
     :summary => "Borrow or exchange books.",
   :description => 
-    "... facts, tips, resources ...",
+      "- Naropa's [Allen Ginsberg Library](http://www.naropa.edu/allen-ginsberg-library/index.php) carries over 30,000 books
+- The [Boulder Public Library](http://boulderlibrary.org/) has thousands of books, CDs, and DVDs. Getting a library card is easy: Just present your Driver's License or [alternative evidence of local residence](https://boulderlibrary.org/card/#requirements)
+- Did you know that - as a Naropa student - you can [obtain a free CU library card and get access to ten thousands of books](http://www.naropa.edu/allen-ginsberg-library/norlin-vouchers.php)? Visit the Allen Ginsberg Library to get started!
+- Cannot find the book you are looking for in any of these libraries? Through [Naropa's Interlibrary Loan Program](http://www.naropa.edu/allen-ginsberg-library/interlibrary-loan.php), you can actually request books from all across the world to be sent right to our library!
+- If for some reason you do really want to get your private copy of a book, consider buying used or 2nd-hand. One great reseller is [BetterWorldBooks](http://www.betterworldbooks.com/)",
     :image => File.new("#{Rails.root}/public/images/consumption/books.jpg")
     },
     {
@@ -290,10 +350,12 @@ Activity.create([
     },
     {
     :category => consumption,
-    :title => "...",
+      :title => "Get Me Recycled",
       :summary => "Buy recycled toilet paper.",
   :description => 
-    "... facts, tips, resources ...",
+      "- According to [National Geographic](http://voices.nationalgeographic.com/2010/04/16/27000_trees_a_day_used_for_toilet_tissue/), 27,000 trees are flushed away in the form of toilet paper every day
+- Producing recycled paper requires 28 - 70% less energy, saves water, and produces fewer air pollutants ([Ecologist](http://www.theecologist.org/green_green_living/behind_the_label/269364/behind_the_label_recycled_toilet_tissue.html))
+- [Compare the environmental ratings of various tissue paper products](http://www.nrdc.org/land/forests/tissueguide/ratings.aspx) compiled by the NRDC",
     :image => File.new("#{Rails.root}/public/images/consumption/toilet-paper.jpg")
     },
     {
