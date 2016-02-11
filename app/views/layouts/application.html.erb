@@ -5,6 +5,7 @@
   title = @site_title || "Tackling Climate Change One Action At A Time"
   description = @site_description || "Climate Change is real. Biking is one way to change the story. What will you do in 2016?"
   image = @site_image || "open-graph-image.png"
+  url = @site_url || "http://greennaropa.com/"
   %>
   
   
@@ -30,7 +31,7 @@
   
   <!-- Open Graph data -->
   <meta property="og:title" content="<%= title %>" />
-  <meta property="og:url" content="http://greennaropa.com/" />
+  <meta property="og:url" content="<%= url %>" />
   <meta property="og:image" content="<%= asset_url "social-media/" + image %>" />
   <meta property="og:description" content="<%= description %>" />
   <meta property="og:site_name" content="Green Naropa" />

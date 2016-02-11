@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/home' => 'commitments#index', :as => "home"
   get '/commitments/:category_slug/new' => "commitments#new", :as => "new_commitment"
   
-  get '/commitments/:user_id/:user_name' => 'users#show_commitments', :as => "show_user_commitments"
+  get '/commitments/:user_name' => 'users#show_commitments', :as => "show_user_commitments"
 
   resources :commitments, only: [:create, :destroy]
   

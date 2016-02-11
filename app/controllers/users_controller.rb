@@ -15,18 +15,15 @@ class UsersController < ApplicationController
   end
   
   def show_commitments    
+    @user = User.find_by_username(params[:user_name]) or not_found
+    
+    @commitments = @user.commitments.shuffle
+    
     @layout_fluid = true
-    @user = User.find_by_id(params[:user_id])
-    if @user.username == params[:user_name]
-      @commitments = @user.commitments.shuffle
-      @site_title = "#{@user.name.possessive} Climate Commitments"
-      @site_description = "#{@user.name} has committed to take #{pluralize(@commitments.count, "climate action")} in 2016. What will you do to make a difference?"
-      @site_image = "climate-commitments.jpg"
-      puts "correct"
-    else
-      @commitments = []
-      puts "false"
-    end
+    @site_title = "#{@user.name.possessive} Climate Commitments"
+    @site_description = "#{@user.name} has committed to take #{pluralize(@commitments.count, "climate action")} in 2016. What will you do to make a difference?"
+    @site_image = "climate-commitments.jpg"
+    @site_url = show_user_commitments_url(current_user.username)
   end
 
   # GET /users/new
@@ -46,6 +43,12 @@ class UsersController < ApplicationController
     @user.plain_password = Array.new(10).map { (65 + rand(58)).chr }.join
     @user.password = @user.plain_password
 
+    @user.username = @user.generate_username
+    
+    if User.find_by_username(@user.username)
+      @user.username += User.where(:username => @user.username).count.to_s
+    end
+    
     respond_to do |format|
       if @user.save        
         flash[:info] = "<strong>Wonderful!</strong> We\'ve sent you an access code. You should have new mail within the next 3 minutes and 24 seconds..."

@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   
   after_create :send_welcome_email_to_user
   
-  def username
+  def generate_username
     if email.index('@')
       return email[0, email.index('@')]
     else
