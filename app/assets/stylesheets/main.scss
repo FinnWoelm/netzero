@@ -19,7 +19,8 @@
 }*/
 
 // main index view
-body.main.index {
+body.main.index,
+body.users.show_commitments {
   
   // background image
   .spacing {
@@ -70,6 +71,29 @@ body.main.index {
       width: auto;
     }
   }
+}
+
+// sticky footer
+html {
+  height: 100%;
+}
+
+body {
+  padding-bottom: 6rem;
+  // for xs increase padding bottom to 10rem
+  @include media-breakpoint-down(xs) {
+    padding-bottom: 10rem;
+  }
+  min-height: 100%;
+  position: relative;
+}
+
+#footer {
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  text-align: center;
+  position: absolute;
 }
 
 // black border around cards

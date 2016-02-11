@@ -2,6 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// share buttons
+.btn-fb {
+  color: #fff;
+  background-color: #44619D;
+  border-color: #44619D;
+  
+  &:hover, &:focus {
+    color: #fff;
+    background-color: darken(#44619D, 10%);
+    border-color: darken(#44619D, 10%);
+  }
+  
+  &:active {
+    color: #fff;
+    background-color: darken(#44619D, 20%);
+    border-color: darken(#44619D, 20%);
+  }
+}
+
 // style the highlight box
 #highlight, .info-pane:not(.clearfix) {
   background-color:lightgray;
@@ -36,6 +55,10 @@
 
 .activity {
     transition: all 1s;
+  
+  .card {
+    cursor: pointer;
+  }
 }
 
 .card div.image-container {  

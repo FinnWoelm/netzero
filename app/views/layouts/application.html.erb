@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>GreenNaropa &mdash; Tackling climate change one action at a time</title>
+  <%
+  title = @site_title || "Tackling Climate Change One Action At A Time"
+  description = @site_description || "Climate Change is real. Biking is one way to change the story. What will you do in 2016?"
+  image = @site_image || "open-graph-image.png"
+  %>
+  
+  
+  <title>GreenNaropa &mdash; <%= title %> </title>
+  <meta name="description" content="<%= description %>" /> 
   
   <!-- Required meta tags always come first -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">  
+  
+   <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="<%= title %>">
+  <meta itemprop="description" content="<%= description %>">
+  <meta itemprop="image" content="<%= asset_url "social-media/" + image %>">
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<%= title %>">
+  <meta name="twitter:description" content="<%= description %>">
+  <!-- Twitter summary card with large image must be at least 280x150px -->
+  <meta name="twitter:image:src" content="<%= asset_url "social-media/" + image %>">  
+  
+  <!-- Open Graph data -->
+  <meta property="og:title" content="<%= title %>" />
+  <meta property="og:url" content="http://greennaropa.com/" />
+  <meta property="og:image" content="<%= asset_url "social-media/" + image %>" />
+  <meta property="og:description" content="<%= description %>" />
+  <meta property="og:site_name" content="Green Naropa" />
+  
   
   <!-- Stylesheets & Javascript -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -25,7 +53,8 @@
      <li class="nav-item">
        <% #if user is logged in, then show logout button 
        if current_user %>
-         <%= link_to logout_path, class: "nav-link" do %>
+        Hi, <%= current_user.name %>! 
+       <%= link_to logout_path, class: "nav-link", style: "display: inline-block; padding-left: 5px;" do %>
            <%= fa_icon "sign-out" %> Logout
          <% end %>
        <% #else show login button
@@ -41,7 +70,7 @@
   </div>
 </nav>    
   
-<div class="container">  
+<div class="<%= @layout_fluid ? 'container-fluid' : 'container'%>">  
   <%= yield %>
 </div>
   

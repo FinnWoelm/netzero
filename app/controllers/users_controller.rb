@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  include ActionView::Helpers::TextHelper
+  
   # GET /users
   # GET /users.json
   def index
@@ -10,6 +12,21 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+  end
+  
+  def show_commitments    
+    @layout_fluid = true
+    @user = User.find_by_id(params[:user_id])
+    if @user.username == params[:user_name]
+      @commitments = @user.commitments.shuffle
+      @site_title = "#{@user.name.possessive} Climate Commitments"
+      @site_description = "#{@user.name} has committed to take #{pluralize(@commitments.count, "climate action")} in 2016. What will you do to make a difference?"
+      @site_image = "climate-commitments.png"
+      puts "correct"
+    else
+      @commitments = []
+      puts "false"
+    end
   end
 
   # GET /users/new

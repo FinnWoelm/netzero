@@ -130,6 +130,7 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.4)
+    possessive (1.0.1)
     puma (2.15.3)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -224,6 +225,7 @@ DEPENDENCIES
   mandrill-api
   paperclip (~> 4.3)
   pg
+  possessive
   puma
   rails (= 4.2.4)
   rails-assets-tether (>= 1.1.0)!

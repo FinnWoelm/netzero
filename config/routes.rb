@@ -10,14 +10,16 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   
   # Admin Access
-  scope '/admin' do
-    resources :activity_categories
-    resources :activities
-  end
+  #scope '/admin' do
+  #  resources :activity_categories
+  #  resources :activities
+  #end
   
   # Public Access    
   get '/home' => 'commitments#index', :as => "home"
   get '/commitments/:category_slug/new' => "commitments#new", :as => "new_commitment"
+  
+  get '/commitments/:user_id/:user_name' => 'users#show_commitments', :as => "show_user_commitments"
 
   resources :commitments, only: [:create, :destroy]
   

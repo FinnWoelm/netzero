@@ -29,8 +29,10 @@ function destroyCommitment(id){
     $("#activity_"+id).remove();
     
     // if there are no more cards, show no commitments indicator
-    if($(".activity").length == 0)
+    if($(".activity").length == 0) {
+      $("#sharing-buttons").slideUp();
       $("#no-commitments-indicator").slideDown();
+    }
   });
 }
         

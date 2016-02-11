@@ -1,0 +1,94 @@
+<!-- TOP BANNER -->
+
+<%
+background = [
+  {img: "bike-friend.jpg",
+    action: "bike to class",
+    descriptor: "Biking"}, 
+  {img: "food.jpg",
+    action: "buy local food",
+    descriptor: "Buying locally"},
+  {img: "bus.jpg",
+    action: "ride the bus",
+    descriptor: "Taking the bus"},
+  {img: "tree.jpg",
+    action: "plant trees",
+    descriptor: "Planting trees"}].sample
+%>
+
+<div class="row banner" style="background: url(<%= 
+#@commitments.sample.activity.image.url
+asset_path 'backgrounds/' + background[:img]
+%>) no-repeat center center; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;">
+  <div class="col-xs-12">
+    
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+
+          <div class="spacing-small">
+          </div>
+
+          <h1 class="text-xs-center display-4">
+            <strong><%= @user.name.possessive %> Climate Commitments for 2016</strong>
+          </h1>
+
+          <div class="spacing-small">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+ <div class="spacing-mini">
+ </div>
+
+  
+<div class="container">
+
+  <div id="no-commitments-indicator" class="row" style="display: <%= @commitments.count == 0 ? 'block' : 'none' %>">
+    <div class="col-xs-12 text-xs-center" >
+        <h3 class="text-muted">&mdash;</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <%
+     cards_per_row = {}
+     cards_per_row['xs'] = 1
+     cards_per_row['sm'] = 2
+     cards_per_row['md'] = 4
+     cards_per_row['lg'] = 4
+     cards_per_row['xl'] = 6
+     @commitments.each_with_index do |commitment, index| %>
+
+      <%= render :partial => "commitments/card-display/clearfixes", :locals => {cards_per_row: cards_per_row, index: index} %>
+
+      <%= render :partial => "commitments/card-display/activity_card", :locals => {activity: commitment.activity, allow_new_commitments: false, allow_uncommitments: false, cards_per_row: cards_per_row, post_action: "kill"} %>
+    <% end %>
+  </div>
+
+  <%= # render info panes
+  render :partial => "commitments/card-display/info_panes", :locals => {cards_per_row: cards_per_row} %>
+
+  <div class="row">
+    <div class="col-xs-12 text-xs-center">
+      <hr/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 text-xs-center">
+      <h3>What are your commitments for 2016?</h3>
+      <%= link_to '/', class: "btn btn-primary btn-lg" do %>
+      <%= fa_icon "fw heart" %> Take Action
+      <% end %>
+    </div>
+  </div>
+</div>

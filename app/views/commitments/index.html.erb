@@ -1,14 +1,34 @@
 <div class="row">
   <div class="col-xs-12 text-xs-center">
-    <h1>Your Climate Commitments For 2016:</h1>
+    <h1>Your Climate Commitments for 2016</h1>
   </div>
 </div>
 
-<div id="no-commitments-indicator" class="row" style="display: <%= @commitments.count == 0 ? 'block' : 'none' %>">
+<div id="sharing-buttons" class="row" style="display: <%= @commitments.count == 0 ? 'none' : '' %>">
+  <div class="col-xs-4 col-md-2 col-md-offset-3 text-xs-center">
+    <%= link_to "https://www.facebook.com/sharer/sharer.php?u=" + url_encode("http://greennaropa.com/commitments/"+current_user.id.to_s+"/"+current_user.username), :target => "_blank", :class => "btn btn-fb btn-block" do %>
+    <%= fa_icon "fw facebook" %> Share
+    <% end %>
+  </div>
+  <div class="col-xs-4 col-md-2 text-xs-center">
+    <%= link_to "https://twitter.com/share?text=" + url_encode("Check out my climate commitments for 2016") + "&url=" + url_encode("http://greennaropa.com/commitments/"+current_user.id.to_s+"/"+current_user.username), :target => "_blank", :class => "btn btn-info btn-block" do %>
+    <%= fa_icon "fw twitter" %> Tweet
+    <% end %>
+  </div>
+  <div class="col-xs-4 col-md-2 text-xs-center">
+    <%= link_to "https://plus.google.com/share?url=" + url_encode("http://greennaropa.com/commitments/"+current_user.id.to_s+"/"+current_user.username), :target => "_blank", :class => "btn btn-danger btn-block" do %>
+    <%= fa_icon "fw google-plus" %> Share
+    <% end %>
+  </div>
+</div>
+
+<div id="no-commitments-indicator" class="row" style="display: <%= @commitments.count != 0 ? 'none' : '' %>">
   <div class="col-xs-12 text-xs-center" >
       <h3 class="text-muted">&mdash;</h3>
   </div>
 </div>
+
+<div class="spacing"></div>
 
 <div class="row">
   <%
@@ -22,7 +42,7 @@
 
     <%= render :partial => "commitments/card-display/clearfixes", :locals => {cards_per_row: cards_per_row, index: index} %>
 
-    <%= render :partial => "commitments/card-display/activity_card", :locals => {activity: commitment.activity, allow_new_commitments: false, cards_per_row: cards_per_row, post_action: "kill"} %>
+    <%= render :partial => "commitments/card-display/activity_card", :locals => {activity: commitment.activity, allow_new_commitments: false, allow_uncommitments: true, cards_per_row: cards_per_row, post_action: "kill"} %>
   <% end %>
 </div>
 

@@ -41,6 +41,9 @@ gem "font-awesome-rails"
 # Install HighCharts for awesome charts
 gem "highcharts-rails", "~> 3.0.0"
 
+# Install possessive for 's
+gem "possessive"
+
 # Paperclip for image attachments
 gem "paperclip", "~> 4.3"
 

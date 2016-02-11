@@ -2,7 +2,7 @@ class MainController < ApplicationController
   
   # homepage
   def index
-    render layout: "home"
+    @layout_fluid = true
   end
   
   # user is shown the next question

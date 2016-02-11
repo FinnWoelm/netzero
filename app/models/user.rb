@@ -11,11 +11,20 @@ class User < ActiveRecord::Base
   
   after_create :send_welcome_email_to_user
   
+  def username
+    if email.index('@')
+      return email[0, email.index('@')]
+    else
+      return user.email
+    end
+  end
+  
+  
   private
   
-    # welcome user by email
-    def send_welcome_email_to_user
-      UserMailer.welcome(email, name, plain_password).deliver_later
-    end
+  # welcome user by email
+  def send_welcome_email_to_user
+    UserMailer.welcome(email, name, plain_password).deliver_later
+  end
   
 end
