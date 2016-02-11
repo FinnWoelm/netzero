@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @site_title = "#{@user.name.possessive} Climate Commitments"
     @site_description = "#{@user.name} has committed to take #{pluralize(@commitments.count, "climate action")} in 2016. What will you do to make a difference?"
     @site_image = "climate-commitments.jpg"
-    @site_url = show_user_commitments_url(current_user.username)
+    @site_url = show_user_commitments_url(@user.username)
   end
 
   # GET /users/new
