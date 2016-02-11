@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       @commitments = @user.commitments.shuffle
       @site_title = "#{@user.name.possessive} Climate Commitments"
       @site_description = "#{@user.name} has committed to take #{pluralize(@commitments.count, "climate action")} in 2016. What will you do to make a difference?"
-      @site_image = "climate-commitments.png"
+      @site_image = "climate-commitments.jpg"
       puts "correct"
     else
       @commitments = []
