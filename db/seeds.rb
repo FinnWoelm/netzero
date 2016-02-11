@@ -254,7 +254,7 @@ Activity.create([
   :description => 
   "- You can get free Coloradan seeds at the [Seeds Boulder Public Library cafe](http://seedsboulder.com/)
 - You can purchase organic seeds and plants at [Harlequin's Gardens](http://www.harlequinsgardens.com/) in North Boulder
-- You can plant your own trees or [help reduce CO&u2082; emissions by protecting existing rainforests](https://standfortrees.org/en/)
+- You can plant your own trees or [help reduce CO&#x2082; emissions by protecting existing rainforests](https://standfortrees.org/en/)
 - Get involved with the Naropa Community Greenhouse or the Food Forest",
   :image => File.new("#{Rails.root}/public/images/food/plant.jpg")
     },
@@ -382,7 +382,8 @@ User.skip_callback(:create, :after, :send_welcome_email_to_user)
 u = User.new({
   :name => "Test",
   :email => "test",
-  :password => "test"
+  :password => "test",
+  :username => "test"
   })
 
 u.save(:validate => false)
