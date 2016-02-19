@@ -50,6 +50,7 @@ task :update_activities => :environment do
     {
       # Read articles for class digitally
       :id => 29,
+      :title => "E-Reader",
       :description => "
 - Printing articles uses both trees and electricity
 - Producing 1lb of paper (~ 100 sheets) emits 2lbs of CO&#x2082;

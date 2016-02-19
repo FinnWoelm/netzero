@@ -130,6 +130,10 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.4)
+    piwik_analytics (1.0.2)
+      actionpack
+      activesupport
+      rails (>= 3.0.0)
     possessive (1.0.1)
     puma (2.15.3)
     rack (1.6.4)
@@ -225,6 +229,7 @@ DEPENDENCIES
   mandrill-api
   paperclip (~> 4.3)
   pg
+  piwik_analytics (~> 1.0.1)
   possessive
   puma
   rails (= 4.2.4)

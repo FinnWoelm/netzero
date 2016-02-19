@@ -1,6 +1,9 @@
 <% if flash[:info] %>
 <div class="alert alert-info" role="alert">
   <%= fa_icon("flag 2x") %> <%= flash[:info].html_safe %>
+  <script>
+    _paq.push(['trackEvent', 'User', 'Registration']);
+  </script>
 </div>
 <% end %>
 <% if flash[:error] %>

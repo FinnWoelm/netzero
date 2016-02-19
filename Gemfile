@@ -56,6 +56,9 @@ gem 'bcrypt'
 # Use Mandrill for sending email
 gem 'mandrill-api'
 
+# Use Piwik for Analytics
+gem 'piwik_analytics', '~> 1.0.1'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
