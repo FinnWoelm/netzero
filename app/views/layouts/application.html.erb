@@ -41,6 +41,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= piwik_tracking_tag %>  
+
   
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
@@ -91,9 +93,6 @@
     
   </div>
 </nav>
-
-<%= piwik_tracking_tag %>  
-
   
 </body>
 </html>
