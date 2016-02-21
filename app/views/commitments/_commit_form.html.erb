@@ -1,5 +1,5 @@
   <!-- commit form -->
-  <%= form_for(Commitment.new, remote: true) do |f| %>
+  <%= form_for(Commitment.new, remote: true, :format => "js") do |f| %>
     <%= f.hidden_field :activity_id, value: activity_id %>
     <button type="submit" class="btn btn-primary"><%= fa_icon "check" %> Commit to this Action</button>
   <% end %>

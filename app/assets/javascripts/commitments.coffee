@@ -3,10 +3,12 @@
   $(".info-pane").css("display", "none");
   
   // commit action
-  $(".submit-action").click(function() {
-      $(".submit-action").find("button").first().prop("disabled", true);
-      $(".submit-action").find("button").first().html("<i class='fa fa-spinner fa-spin'></i> Loading...");  
-  });
+  /*$(".submit-action").click(function() {
+    //$(".submit-action").find("button").first().hide(0);
+    //$(".submit-action").find("button").first().prop("disabled", true);
+    //  $(".submit-action").find("button").first().html("<i class='fa fa-spinner fa-spin'></i> Loading...");
+      //$(".submit-action").find("input.submit-btn").first().click();
+  });*/
   
   // close highlight pane
   $(".btn-close").click(function() {
