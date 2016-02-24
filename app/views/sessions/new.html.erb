@@ -2,7 +2,7 @@
 <div class="alert alert-info" role="alert">
   <%= fa_icon("flag 2x") %> <%= flash[:info].html_safe %>
   <script>
-    _paq.push(['trackEvent', 'User', 'Registration']);
+    _paq.push(['trackEvent', 'User', 'Registration', "<%= flash[:username] %>"]);
   </script>
 </div>
 <% end %>

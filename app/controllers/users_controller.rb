@@ -52,6 +52,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save        
         flash[:info] = "<strong>Wonderful!</strong> We\'ve sent you an access code. You should have new mail within the next 3 minutes and 24 seconds..."
+        flash[:username] = @user.username
         format.html { redirect_to login_path}
         format.json { render :show, status: :created, location: @user }
       else

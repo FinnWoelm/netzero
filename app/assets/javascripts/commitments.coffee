@@ -2,6 +2,11 @@
 
   $(".info-pane").css("display", "none");
   
+  // sharing buttons
+  $("#sharing-buttons a").click(function() {
+    _paq.push(['trackEvent', 'User', 'Share', $(this).data("platform")]);
+  });
+  
   // commit action
   /*$(".submit-action").click(function() {
     //$(".submit-action").find("button").first().hide(0);
