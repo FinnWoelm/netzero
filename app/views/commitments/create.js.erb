@@ -8,5 +8,5 @@ function setCommitment($id) {
 
   $(".btn-close:visible").click();
   
-  _paq.push(['trackEvent', 'User', 'Commit', "("+$id") <%= @commitment.activity.title %>"]);
+  _paq.push(['trackEvent', 'User', 'Commit', "("+$id+") <%= @commitment.activity.title %>"]);
 }
