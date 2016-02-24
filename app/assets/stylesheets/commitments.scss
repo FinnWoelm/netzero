@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+$info_pane_background_color: #F6F6F6;
+$info_pane_border_color: #DDD;
+
 // share buttons
 .btn-fb {
   color: #fff;
@@ -23,7 +27,8 @@
 
 // style the highlight box
 #highlight, .info-pane:not(.clearfix) {
-  background-color:lightgray;
+  background-color: $info_pane_background_color;
+  border: 1px solid $info_pane_border_color;
   padding-top:15px;
   margin-bottom: 15px;
   border-radius: 8px;
@@ -39,6 +44,19 @@
   
   .submit-action {
     margin-top: -50px;
+  }
+  
+  
+  // tiny triangle underneath pane indicates current card
+  div.triangle > div {
+    
+    border-top: 10px solid $info_pane_border_color;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    
+    // adjust position so that triangle aligns with pane's border
+    position: relative;
+    top: 1px; 
   }
 }
 
