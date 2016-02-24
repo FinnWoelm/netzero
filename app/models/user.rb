@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     if email.index('@')
       return email[0, email.index('@')]
     else
-      return user.email
+      return email
     end
   end
   
