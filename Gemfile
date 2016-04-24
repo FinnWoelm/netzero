@@ -53,8 +53,18 @@ gem 'redcarpet', '~> 3.0.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
-# Use Mandrill for sending email
-gem 'mandrill-api'
+# Use Mandrill for sending email -- removed as of April 23 because Mandrill is becoming pay-only
+#gem 'mandrill-api'
+# Use Sendgrid for sending email
+#gem 'sendgrid-rails', '~> 2.0'
+
+# Premailer
+gem 'premailer-rails'
+gem 'nokogiri'
+
+
+# Use pry for command-line action
+gem 'pry-rails', :group => :development
 
 # Use Piwik for Analytics
 gem 'piwik_analytics', '~> 1.0.1'

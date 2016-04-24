@@ -18,16 +18,24 @@ Rails.application.configure do
   #config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   
-  # Set-up Mandrill in Sandbox mode
-  config.action_mailer.smtp_settings = {
-    address: ENV["MANDRILL_SMTP_ADDRESS"],
-    authentication: 'login',
-    password: ENV["MANDRILL_SMTP_PASSWORD"],
-    port: 587,
-    user_name: ENV["MANDRILL_SMTP_USERNAME"],
-    domain: ENV["MANDRILL_SMTP_DOMAIN"]
+    
+  # Setup Sendgrid
+  #ActionMailer::Base.register_interceptor(SendGrid::MailInterceptor) #use only with sendgrid-rails gem
+  ActionMailer::Base.smtp_settings = {
+    :user_name => ENV["SENDGRID_SMTP_USERNAME"],
+    :password => ENV["SENDGRID_SMTP_PASSWORD"],
+    :domain => 'greennaropa.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
-  #config.action_mailer.default_url_options = { host: ENV["MANDRILL_SMTP_DOMAIN"] }
+  
+#use only with sendgrid-rails gem  
+#SendGrid.configure do |config| 
+#  config.dummy_recipient = 'noreply@greennaropas.com'
+#end
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

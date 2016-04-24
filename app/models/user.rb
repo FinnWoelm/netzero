@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   
   # welcome user by email
   def send_welcome_email_to_user
-    UserMailer.welcome(email, name, plain_password).deliver_later
+    UserMailer.welcome(self.name, self.email, self.plain_password).deliver_later
   end
   
 end
